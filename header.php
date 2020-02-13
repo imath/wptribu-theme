@@ -27,13 +27,13 @@ namespace WPTribu\Theme;
 
 <div id="wptribu-header">
 	<div class="wrapper">
-		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wptribu' ); ?></a>
+		<a class="skip-link screen-reader-text" href="#page-content"><?php esc_html_e( 'Skip to content', 'wptribu' ); ?></a>
         <h1><a href="<?php echo esc_url( get_home_url( null, '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<div style="clear:both"></div>
 		<button id="mobile-menu-button" aria-expanded="false"><span class="screen-reader-text">Toggle Menu</span></button>
-		
+
 		<?php
-		
+
 		wp_nav_menu(
 			array(
 				'theme_location' => 'header',
@@ -48,4 +48,4 @@ namespace WPTribu\Theme;
 </div>
 
 <div id="page" class="site">
-	<div id="content" class="site-content row gutters">
+	<div id="page-content" class="site-content row gutters">

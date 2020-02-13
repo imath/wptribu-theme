@@ -1,0 +1,14 @@
+body.blog {
+	.gutters .col-12 {
+		width: 100%;
+	}
+
+	.row.gutters > .row {
+		margin-left: auto;
+	}
+
+	.blog-wrapper {
+		margin: 0 auto;
+		width: 960px;
+	}
+}
