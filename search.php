@@ -20,7 +20,7 @@ get_header(); ?>
 					<?php
 					printf(
 						/* translators: Search query. */
-						esc_html__( 'Search Results for: %s', 'wporg' ),
+						esc_html__( 'Search Results for: %s', 'wptribu' ),
 						get_search_query()
 					);
 					?>
@@ -52,7 +52,7 @@ get_header(); ?>
 						edit_post_link(
 							sprintf(
 								/* translators: %s: Name of current post */
-								__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'wporg' ),
+								__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'wptribu' ),
 								get_the_title()
 							),
 							'<span class="edit-link">',

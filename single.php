@@ -37,11 +37,11 @@ if ( 'post' === get_post_type() ) {
 				// Previous/next post navigation.
 				the_post_navigation( [
 					// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
-					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'wporg' ) . '</span> ' .
-								'<span class="screen-reader-text">' . __( 'Next post:', 'wporg' ) . '</span> ' .
+					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'wptribu' ) . '</span> ' .
+								'<span class="screen-reader-text">' . __( 'Next post:', 'wptribu' ) . '</span> ' .
 								'<span class="post-title">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'wporg' ) . '</span> ' .
-								'<span class="screen-reader-text">' . __( 'Previous post:', 'wporg' ) . '</span> ' .
+					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'wptribu' ) . '</span> ' .
+								'<span class="screen-reader-text">' . __( 'Previous post:', 'wptribu' ) . '</span> ' .
 								'<span class="post-title">%title</span>',
 					// phpcs:enable WordPress.WhiteSpace.PrecisionAlignment.Found
 				] );
