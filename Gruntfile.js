@@ -1,7 +1,7 @@
 /**
  * Gruntfile.js
  *
- * @package WordPressdotorg\Theme
+ * @package WPTribu\Theme
  */
 
 /* global module:false, require:function, process:object */
@@ -9,7 +9,7 @@
 require( 'es6-promise' ).polyfill();
 
 module.exports = function( grunt ) {
-	var isChild = 'wporg' !== grunt.file.readJSON( 'package.json' ).name;
+	var isChild = 'wptribu' !== grunt.file.readJSON( 'package.json' ).name;
 
 	grunt.initConfig({
 		postcss: {
@@ -75,7 +75,7 @@ module.exports = function( grunt ) {
 					var files = {};
 
 					['settings', 'tools', 'generic', 'base', 'objects', 'components', 'trumps'].forEach( function( component ) {
-						var paths = [ '../wporg/css/' + component + '/**/*.scss', '!../wporg/css/' + component + '/_' + component + '.scss' ];
+						var paths = [ '../wptribu/css/' + component + '/**/*.scss', '!../wptribu/css/' + component + '/_' + component + '.scss' ];
 
 						if ( isChild ) {
 							paths.push( 'css/' + component + '/**/*.scss' );

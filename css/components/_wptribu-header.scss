@@ -197,7 +197,8 @@
 			}
 
 			&.current-menu-item:after,
-			&.current_page_parent:after {
+			&.current_page_parent:after,
+			&.current-page-ancestor:after {
 				border-bottom: 9px solid #f7f7f7;
 				border-left: 9px solid transparent;
 				border-right: 9px solid transparent;
@@ -249,6 +250,7 @@
 
 		ul li.current-menu-item:after,
 		ul li.current_page_parent:after,
+		ul li.current-page-ancestor:after,
 		ul li a.current ~ .uparrow {
 			border-bottom-color: $color__wp-blue;
 		}

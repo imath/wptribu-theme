@@ -1,0 +1,9 @@
+.site-content {
+
+	.blog &,
+	&.blog {
+		margin: auto;
+		max-width: none;
+		padding: 0;
+	}
+}

@@ -10,10 +10,44 @@
 namespace WPTribu\Theme;
 
 function setup_theme() {
-    register_nav_menus( array(
+	// Add Title tag support.
+	add_theme_support( 'title-tag' );
+
+	// Add default posts and comments RSS feed links to head.
+	add_theme_support( 'automatic-feed-links' );
+
+	// Don't include Adjacent Posts functionality.
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
 		'header'  => esc_html__( 'Header', 'wptribu' ),
 		'primary' => esc_html__( 'Primary', 'wptribu' ),
 	) );
+
+	/*
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
+	add_theme_support(
+		'html5',
+		array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+
+	// Set up the WordPress core custom background feature.
+	add_theme_support(
+		'custom-background',
+		array(
+			'default-color' => 'ffffff',
+			'default-image' => '',
+		)
+	);
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
 
@@ -23,22 +57,6 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
  * @since 1.0.0
  */
 function styles() {
-    // Disable the parent theme scripts
-    remove_action( 'wp_enqueue_scripts', 'WordPressdotorg\Theme\scripts' );
-
-    $suffix       = '.min';
-    $script_debug = false;
-
-    if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-        $suffix       = '';
-        $script_debug = true;
-    }
-
-	// Concatenates core scripts when possible.
-	if ( ! $script_debug ) {
-		$GLOBALS['concatenate_scripts'] = true;
-    }
-
     wp_enqueue_style(
         'wptribu',
         get_theme_file_uri( '/css/style.css' ),
@@ -51,6 +69,68 @@ function styles() {
     wp_style_add_data( 'wptribu', 'rtl', 'replace' );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\styles', 9 );
+
+/**
+ * Set the separator for the document title.
+ *
+ * @return string Document title separator.
+ */
+function document_title_separator() {
+	return '&#124;';
+}
+add_filter( 'document_title_separator', __NAMESPACE__ . '\document_title_separator' );
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+function content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'wporg_content_width', 612 );
+}
+add_action( 'after_setup_theme', __NAMESPACE__ . '\content_width', 0 );
+
+/**
+ * Enqueue scripts and styles.
+ */
+function scripts() {
+	$suffix       = '.min';
+    $script_debug = false;
+
+    if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+        $suffix       = '';
+        $script_debug = true;
+    }
+
+	// Concatenates core scripts when possible.
+	if ( ! $script_debug ) {
+		$GLOBALS['concatenate_scripts'] = true;
+    }
+
+	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.InlineComment.InvalidEndChar
+	wp_enqueue_script(
+		'wptribu-navigation',
+		get_template_directory_uri() . "/js/navigation$suffix.js",
+		array(),
+		'1.0.0',
+		true
+	);
+
+	wp_enqueue_script(
+		'wptribu-plugins-skip-link-focus-fix',
+		get_template_directory_uri() . "/js/skip-link-focus-fix$suffix.js",
+		array(),
+		'1.0.0',
+		true
+	);
+
+	if ( ! is_front_page() && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\scripts', 10 );
 
 /**
  * Extends the default WordPress body classes.
@@ -74,17 +154,6 @@ function body_classes( $classes = array() ) {
 	return array_unique( $classes );
 }
 add_filter( 'body_class', __NAMESPACE__ . '\body_classes' );
-
-/**
- * Remove WPOrg parent's theme hooks.
- *
- * @since 1.0.0
- */
-function remove_wporg_head_hook() {
-    remove_action( 'wp_head', 'WordPressdotorg\Theme\hreflang_link_attributes' );
-    remove_filter( 'style_loader_src', 'WordPressdotorg\Theme\style_src', 10, 2 );
-}
-add_action( 'wp_head', __NAMESPACE__ . '\remove_wporg_head_hook', 0 );
 
 function page_has_parent() {
 	if ( ! is_page() ) {
@@ -127,6 +196,31 @@ function page_menu() {
 
 	echo $page_menu;
 }
+
+/**
+ * Add postMessage support for site title and description for the Theme Customizer.
+ *
+ * @param \WP_Customize_Manager $wp_customize Theme Customizer object.
+ */
+function customize_register( $wp_customize ) {
+	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+}
+add_action( 'customize_register', __NAMESPACE__ . '\customize_register' );
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function customize_preview_js() {
+	wp_enqueue_script(
+		'wptribu_plugins_customizer',
+		get_template_directory_uri() . '/js/customizer.js',
+		array( 'customize-preview' ),
+		'1.0.0',
+		true
+	);
+}
+add_action( 'customize_preview_init', __NAMESPACE__ . '\customize_preview_js' );
 
 /**
  * Custom template tags.

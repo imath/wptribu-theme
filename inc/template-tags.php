@@ -11,7 +11,7 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_meta' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags.
 	 *
-	 * Create your own  WordPressdotorg\Theme\entry_meta() function to override in a child theme.
+	 * Create your own  WPTribu\Theme\entry_meta() function to override in a child theme.
 	 */
 	function entry_meta() {
 		if ( in_array( get_post_type(), array( 'post', 'attachment' ), true ) ) {
@@ -67,7 +67,7 @@ if ( ! function_exists( __NAMESPACE__ . '\get_entry_date' ) ) :
 	/**
 	 * Prints HTML with published and updated information for current post.
 	 *
-	 * Create your own  WordPressdotorg\Theme\get_entry_date() function to override in a child theme.
+	 * Create your own  WPTribu\Theme\get_entry_date() function to override in a child theme.
 	 */
 	function get_entry_date() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -90,7 +90,7 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_date' ) ) :
 	/**
 	 * Prints HTML with date information for current post.
 	 *
-	 * Create your own  WordPressdotorg\Theme\entry_date() function to override in a child theme.
+	 * Create your own  WPTribu\Theme\entry_date() function to override in a child theme.
 	 */
 	function entry_date() {
 		printf(
@@ -106,11 +106,11 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_taxonomies' ) ) :
 	/**
 	 * Prints HTML with category and tags for current post.
 	 *
-	 * Create your own WordPressdotorg\Theme\entry_taxonomies() function to override in a child theme.
+	 * Create your own WPTribu\Theme\entry_taxonomies() function to override in a child theme.
 	 */
 	function entry_taxonomies() {
 		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'wptribu' ) );
-		if ( $categories_list && categorized_blog() ) {
+		if ( $categories_list ) {
 			printf(
 				'<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
 				esc_html_x( 'Categories', 'Used before category names.', 'wptribu' ),
