@@ -9,10 +9,19 @@
 
 namespace WPTribu\Theme;
 
-get_header();
+if ( is_post_archive( 'post' ) ) {
+	get_header( 'blog' );
+} else {
+	get_header();
+}
 ?>
 
-	<main id="main" class="site-main col-8" role="main">
+<?php if ( is_post_archive( 'post' ) ) : ?>
+	<div class="blog-wrapper row gutters">
+		<main id="main" class="site-main col-9" role="main">
+<?php else : ?>
+		<main id="main" class="site-main col-8" role="main">
+<?php endif; ?>
 
 	<?php if ( have_posts() ) : ?>
 
@@ -40,7 +49,12 @@ get_header();
 	?>
 
 	</main><!-- #main -->
+<?php if ( is_post_archive( 'post' ) ) :
+	get_sidebar();
+?>
+	</div>
+<?php else :
+	get_sidebar();
+endif;
 
-<?php
-get_sidebar();
 get_footer();

@@ -33,33 +33,35 @@ get_header(); ?>
 				the_post();
 			?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-				<header class="entry-header">
-					<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-				</header><!-- .entry-header -->
+			<div class="search-wrapper">
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<header class="entry-header">
+						<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+					</header><!-- .entry-header -->
 
-				<?php if ( 'post' === get_post_type() ) : ?>
-					<div class="entry-meta"><?php entry_meta(); ?></div>
-				<?php endif; ?>
+					<?php if ( 'post' === get_post_type() ) : ?>
+						<div class="entry-meta"><?php entry_meta(); ?></div>
+					<?php endif; ?>
 
-				<div class="entry-summary">
-					<?php the_excerpt(); ?>
-				</div><!-- .entry-summary -->
+					<div class="entry-summary">
+						<?php the_excerpt(); ?>
+					</div><!-- .entry-summary -->
 
-				<footer class="entry-footer">
-					<?php
-					edit_post_link(
-						sprintf(
-							/* translators: %s: Name of current post */
-							__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'wporg' ),
-							get_the_title()
-						),
-						'<span class="edit-link">',
-						'</span>'
-					);
-					?>
-				</footer><!-- .entry-footer -->
-			</article><!-- #post-## -->
+					<footer class="entry-footer">
+						<?php
+						edit_post_link(
+							sprintf(
+								/* translators: %s: Name of current post */
+								__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'wporg' ),
+								get_the_title()
+							),
+							'<span class="edit-link">',
+							'</span>'
+						);
+						?>
+					</footer><!-- .entry-footer -->
+				</article><!-- #post-## -->
+			</div><!-- .search-wrapper -->
 
 			<?php
 				// End the loop.

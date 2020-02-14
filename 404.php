@@ -16,10 +16,7 @@ get_header(); ?>
 		<section class="error-404 not-found">
 			<header class="page-header">
 				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wporg' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p>
+				<p class="page-description">
 					<?php
 					printf(
 						/* translators: Home URL. */
@@ -28,7 +25,9 @@ get_header(); ?>
 					);
 					?>
 				</p>
+			</header><!-- .page-header -->
 
+			<div class="page-content">
 				<div class="logo-swing">
 					<img src="<?php echo esc_url( get_theme_file_uri( '/images/wp-logo-blue-trans-blur.png' ) ); ?>" class="wp-logo" />
 					<img id="hinge" src="<?php echo esc_url( get_theme_file_uri( '/images/wp-logo-blue.png' ) ); ?>" class="wp-logo hinge" />

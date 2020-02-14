@@ -132,6 +132,10 @@ function scripts() {
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\scripts', 10 );
 
+function is_post_archive() {
+	return is_post_type_archive( 'post' ) || is_tag() || is_category() || is_date() || is_archive();
+}
+
 /**
  * Extends the default WordPress body classes.
  *
@@ -149,7 +153,11 @@ function body_classes( $classes = array() ) {
         if ( preg_match( '/page-about-hero/', get_page_template_slug( $page ) ) ) {
             $classes[] = 'page-about';
         }
-    }
+	}
+
+	if ( is_post_archive() ) {
+		$classes[] = 'archive-post';
+	}
 
 	return array_unique( $classes );
 }
