@@ -130,3 +130,119 @@ function restrict_o2() {
 	}
 }
 add_action( 'template_redirect', __NAMESPACE__ . '\restrict_o2' );
+
+/**
+ * Checks if an o2 filter is active.
+ *
+ * @since 1.0.0
+ *
+ * @param string   $filter  The name of the filter.
+ * @param string   $current The current value of the filter.
+ * @return boolean          True if the filter is active. False otherwise.
+ */
+function o2_selected_filter( $filter = '', $current = '' ) {
+	$archive     = get_post_type_archive_link( 'post' );
+	$current_uri = wp_parse_url( $_SERVER['REQUEST_URI'] );
+	$query_args  = array();
+	$return      = false;
+
+	if ( false === strpos( $archive, $current_uri['path'] ) ) {
+		return $return;
+	}
+
+	if ( isset( $current_uri['query'] ) ) {
+		$query_args = wp_parse_args( $current_uri['query'], $query_args );
+	}
+
+	if ( isset( $query_args[ $filter ] ) && $current === $query_args[ $filter ] ) {
+		$return = true;
+	}
+
+	return $return;
+}
+
+/**
+ * Checks if the noreplies o2 filter is active.
+ *
+ * @since 1.0.0
+ */
+function o2_selected_filter_is_noreplies() {
+	return o2_selected_filter( 'replies', 'none' );
+}
+
+/**
+ * Checks if the mentions o2 filter is active.
+ *
+ * @since 1.0.0
+ */
+function o2_selected_filter_is_mentions() {
+	$user = wp_get_current_user();
+
+	return o2_selected_filter( 'mentions', $user->user_nicename );
+}
+
+/**
+ * Checks if the resolved o2 filter is active.
+ *
+ * @since 1.0.0
+ */
+function o2_selected_filter_is_resolved() {
+	return o2_selected_filter( 'resolved', 'resolved' );
+}
+
+/**
+ * Checks if the unresolved o2 filter is active.
+ *
+ * @since 1.0.0
+ */
+function o2_selected_filter_is_unresolved() {
+	return o2_selected_filter( 'resolved', 'unresolved' );
+}
+
+/**
+ * Fixes o2 widgets to use the right username.
+ *
+ * @since 1.0.0
+ *
+ * @param array $filters List of filters for o2 widgets.
+ * @return array List of filters for o2 widgets.
+ */
+function o2_filter_widget_filters( $filters = array() ) {
+	$user    = wp_get_current_user();
+	$archive = get_post_type_archive_link( 'post' );
+
+	if ( isset( $filters['filter-none.o2'] ) ) {
+		$filters['filter-none.o2']['url'] = esc_url( $archive );
+	}
+
+	if ( isset( $filters['filter-recent-comments.o2'] ) ) {
+		$filters['filter-recent-comments.o2']['url'] = esc_url( add_query_arg( 'o2_recent_comments', true, $archive ) );
+	}
+
+	if ( isset( $filters['filter-noreplies.o2'] ) ) {
+		$filters['filter-noreplies.o2']['url']       = esc_url( add_query_arg( 'replies', 'none', $archive ) );
+		$filters['filter-noreplies.o2']['is_active'] = __NAMESPACE__ . '\o2_selected_filter_is_noreplies';
+	}
+
+	if ( isset( $filters['filter-mentionsMe.o2'] ) ) {
+		$filters['filter-mentionsMe.o2']['url']       = esc_url( add_query_arg( 'mentions', $user->user_nicename, $archive ) );
+		$filters['filter-mentionsMe.o2']['is_active'] = __NAMESPACE__ . '\o2_selected_filter_is_mentions';
+	}
+
+	if ( isset( $filters['filter-myPosts.o2'] ) ) {
+		$filters['filter-myPosts.o2']['url'] = esc_url( home_url( '/author/' . $user->user_nicename ) );
+	}
+
+	if ( isset( $filters['filter-resolved.o2'] ) ) {
+		$filters['filter-resolved.o2']['url']       = esc_url( add_query_arg( 'resolved', 'resolved', $archive ) );
+		$filters['filter-resolved.o2']['is_active'] = __NAMESPACE__ . '\o2_selected_filter_is_resolved';
+	}
+
+	if ( isset( $filters['filter-unresolved.o2'] ) ) {
+		$filters['filter-unresolved.o2']['url']       = esc_url( add_query_arg( 'resolved', 'unresolved', $archive ) );
+		$filters['filter-unresolved.o2']['is_active'] = __NAMESPACE__ . '\o2_selected_filter_is_unresolved';
+	}
+
+	return $filters;
+}
+add_filter( 'o2_filter_widget_filters', __NAMESPACE__ . '\o2_filter_widget_filters', 10, 1 );
