@@ -252,3 +252,7 @@ add_action( 'customize_preview_init', __NAMESPACE__ . '\customize_preview_js' );
  * Custom template tags.
  */
 require_once get_theme_file_path( '/inc/template-tags.php' );
+
+if ( class_exists( 'o2' ) ) {
+	require_once get_theme_file_path( '/inc/o2.php' );
+}
