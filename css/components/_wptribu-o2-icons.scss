@@ -60,6 +60,30 @@
 	&.genericon-expand:before {
 		content: "\f347";
 	}
+
+	&.genericon-ellipsis:before {
+		content: "\f108";
+	}
+
+	&.genericon-dot:before {
+		content: "\f481";
+	}
+
+	&.genericon-checkmark:before {
+		content: "\f12a";
+	}
+
+	&.genericon-close:before {
+		content: "\f153";
+	}
+
+	&.genericon-pinned:before {
+		content: "\f537";
+	}
+
+	&.genericon-trash:before {
+		content: "\f182";
+	}
 }
 
 li.o2-filter-widget-item {
@@ -99,13 +123,33 @@ li.o2-filter-widget-item {
 		}
 	}
 
-	&#o2-filter-recent-updates a:before { content: '\f409'; }
-	&#o2-filter-recent-comments a:before { content: '\f108'; }
-	&#o2-filter-my-mentions a:before { content: '\f300'; }
-	&#o2-filter-unresolved-posts a:before { content: '\f468'; }
-	&#o2-filter-resolved-posts a:before { content: '\f418'; }
-	&#o2-filter-no-replies a:before { content: '\f404'; }
-	&#o2-filter-my-posts a:before { content: '\f304'; }
+	&#o2-filter-recent-updates a:before {
+		content: "\f469";
+	}
+
+	&#o2-filter-recent-comments a:before {
+		content: "\f101";
+	}
+
+	&#o2-filter-my-mentions a:before {
+		content: "\f465";
+	}
+
+	&#o2-filter-unresolved-posts a:before {
+		content: "\f227";
+	}
+
+	&#o2-filter-resolved-posts a:before {
+		content: "\f12a";
+	}
+
+	&#o2-filter-no-replies a:before {
+		content: "\f530";
+	}
+
+	&#o2-filter-my-posts a:before {
+		content: "\f110";
+	}
 }
 
 .o2-permalink,
@@ -118,7 +162,7 @@ li.o2-filter-widget-item {
 .o2-sticky-link {
 	&:after {
 		-webkit-font-smoothing: antialiased;
-		font: normal 16px/1 'Dashicons';
+		font: normal 16px/1 'dashicons';
 		display: inline-block;
 		height: 20px;
 		width: 32px;
@@ -156,7 +200,10 @@ li.o2-filter-widget-item {
 .o2-scroll-to-comments { display: none; }
 .o2-scroll-to-comments:after { content: '\f300'; }
 .o2-sticky-link:after { content: '\f308'; }
-.o2-resolve-link:after { content: '\f468'; }
+
+.o2-resolve-link:after {
+	content: "\f12a";
+}
 
 .post-comments-subscribed .o2-follow:after { content: '\f465'; color: $gray-60; }
 .post-comments-subscribed .o2-follow:hover:after { content: '\f464'; color: $gray-60; }
@@ -191,7 +238,7 @@ li.o2-filter-widget-item {
 	&:after {
 		content: '\f103';
 		-webkit-font-smoothing: antialiased;
-		font: normal 16px/1 'Dashicons';
+		font: normal 16px/1 'dashicons';
 		display: inline-block;
 		height: 20px;
 		width: 20px;

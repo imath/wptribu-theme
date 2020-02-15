@@ -1,6 +1,15 @@
 .widget-area {
 	font-size: ms( -2 );
 
+	.o2-filter-widget-list {
+		list-style: none;
+		margin: 0 0 1.5em;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
 	@include breakpoint( 480px, $sm ) {
 		@include flex;
 

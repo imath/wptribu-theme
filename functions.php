@@ -52,6 +52,24 @@ function setup_theme() {
 add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
 
 /**
+ * Register widgets.
+ *
+ * @access public
+ * @return void
+ */
+function widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'Sidebar', 'wporg' ),
+		'id'            => 'sidebar-1',
+		'before_widget' => '<div id="%1$s" class="box gray widget %2$s">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4><div class="widget-content">',
+	) );
+}
+add_action( 'widgets_init', __NAMESPACE__ . '\widgets_init' );
+
+/**
  * Enqueue styles.
  *
  * @since 1.0.0

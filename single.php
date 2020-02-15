@@ -19,6 +19,14 @@ if ( 'post' === get_post_type() ) {
 <?php if ( 'post' === get_post_type() ) : ?>
 	<div class="blog-wrapper row gutters">
 		<main id="main" class="site-main col-9" role="main">
+			<div id="content">
+				<header class="page-header">
+					<h2>
+						<span class="controls">
+							<?php do_action( 'breathe_view_controls' ); ?>
+						</span>
+					</h2>
+				</header><!-- .page-header -->
 <?php else : ?>
 		<main id="main" class="site-main col-8" role="main">
 <?php endif; ?>
@@ -48,13 +56,15 @@ if ( 'post' === get_post_type() ) {
 				endwhile; // End of the loop.
 			?>
 
+<?php if ( 'post' !== get_post_type() ) : ?>
 		</main><!-- #main -->
-<?php if ( 'post' === get_post_type() ) :
-	get_sidebar();
-?>
-	</div>
-<?php else :
-	get_sidebar();
-endif;
+<?php get_sidebar();
+
+else : ?>
+			</div><!-- #content -->
+		</main><!-- #main -->
+		<?php get_sidebar( 'o2' ); ?>
+	</div><!-- .blog-wrapper -->
+<?php endif;
 
 get_footer();

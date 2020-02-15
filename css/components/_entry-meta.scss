@@ -5,6 +5,16 @@
 
 	a {
 		color: #777777;
+
+		&.author-avatar {
+			float: left;
+			margin-right: 10px;
+		}
+
+		&.entry-date,
+		&.entry-author {
+			display: block;
+		}
 	}
 
 	> span {

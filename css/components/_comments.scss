@@ -1,5 +1,6 @@
 
-.comments-area {
+.comments-area,
+.o2-post-comments {
 	margin: 5em 0;
 
 	> :last-child {
@@ -52,7 +53,8 @@
 		background: none;
 	}
 
-	.comment-author {
+	.comment-author,
+	.o2-comment-header {
 		color: #999;
 		margin-bottom: 0.4em;
 
@@ -61,6 +63,25 @@
 			height: 24px;
 			margin-right: 0.8em;
 			width: 24px;
+
+			.o2 & {
+				width: 32px;
+				height: 32px;
+			}
+		}
+
+		.o2-comment-metadata {
+			.comment-date,
+			.comment-author {
+				display: block;
+			}
+
+			.comment-date {
+				.o2 & {
+					font-size: 80%;
+					margin-left: calc( 32px + .8em );
+				}
+			}
 		}
 	}
 
@@ -96,6 +117,10 @@
 		ul,
 		ol {
 			margin: 0 0 1.6em 1.3333em;
+
+			.o2 & {
+				margin-left: 0;
+			}
 		}
 
 		li > ul,
