@@ -9,14 +9,14 @@
 
 namespace WPTribu\Theme;
 
-if ( is_post_archive( 'post' ) ) {
+if ( is_post_archive() ) {
 	get_header( 'blog' );
 } else {
 	get_header();
 }
 ?>
 
-<?php if ( is_post_archive( 'post' ) ) : ?>
+<?php if ( is_post_archive() ) : ?>
 	<div class="blog-wrapper row gutters">
 		<main id="main" class="site-main col-9" role="main">
 			<header class="page-header">
@@ -59,7 +59,7 @@ if ( is_post_archive( 'post' ) ) {
 	endif;
 	?>
 
-<?php if ( ! is_post_archive( 'post' ) ) : ?>
+<?php if ( ! is_post_archive() ) : ?>
 	</main><!-- #main -->
 
 <?php
@@ -68,7 +68,7 @@ if ( is_post_archive( 'post' ) ) {
 else : ?>
 			</div><!-- #content -->
 		</main><!-- #main -->
-		<?php get_sidebar(); ?>
+		<?php get_sidebar( 'o2' ); ?>
 	</div><!-- .blog-wrapper -->
 
 <?php endif;

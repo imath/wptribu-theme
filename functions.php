@@ -59,8 +59,17 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
  */
 function widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'wporg' ),
+		'name'          => __( 'Sidebar', 'wptribu' ),
 		'id'            => 'sidebar-1',
+		'before_widget' => '<div id="%1$s" class="%2$s">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4><div class="widget-content">',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'o2 Sidebar', 'wptribu' ),
+		'id'            => 'sidebar-o2',
 		'before_widget' => '<div id="%1$s" class="box gray widget %2$s">',
 		'after_widget'  => '</div></div>',
 		'before_title'  => '<h4 class="widget-title">',

@@ -14,5 +14,5 @@ namespace WPTribu\Theme;
 <aside id="secondary" class="widget-area col-3">
 	<div id="primary-modal"></div>
 
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php dynamic_sidebar( 'sidebar-o2' ); ?>
 </aside><!-- #secondary -->

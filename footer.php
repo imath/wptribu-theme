@@ -35,9 +35,9 @@ namespace WPTribu\Theme;
 				</span><!-- .powered-by-wordpress -->
 
 			</div><!-- .footer-credits -->
-			
+
 			<div class="footer-utils">
-				<a class="to-the-top" href="#site-header">
+				<a class="to-the-top" href="#wptribu-header">
 					<span class="to-the-top-long">
 						<?php
 						/* translators: %s: HTML character for up arrow */
