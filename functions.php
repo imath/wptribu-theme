@@ -93,7 +93,21 @@ function styles() {
         ),
         '1.0.0'
     );
-    wp_style_add_data( 'wptribu', 'rtl', 'replace' );
+	wp_style_add_data( 'wptribu', 'rtl', 'replace' );
+	wp_add_inline_style(
+		'wptribu',
+		sprintf(
+			'.o2-save-spinner {
+				height: 40px;
+				background-size: 40px 40px;
+				background: url( \'%1$s\' ) no-repeat right bottom;
+			}
+			.o2-editor .o2-editor-text.autocomplete-loading {
+				background: url( \'%1$s\' ) no-repeat right 15px bottom 15px/16px;
+			}',
+			esc_url( admin_url( 'images/spinner-2x.gif' ) )
+		)
+	);
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\styles', 9 );
 

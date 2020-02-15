@@ -40,7 +40,7 @@
 		}
 
 		&.autocomplete-loading {
-			background: #fff url("../img/o2-spinner.gif") no-repeat right 15px bottom 15px/16px;
+			background-color: #fff;
 		}
 	}
 
@@ -331,9 +331,7 @@
 }
 
 .o2-save-spinner {
-	height: 25px;
-	background: url( '../img/o2-spinner.gif' ) no-repeat right bottom;
-	background-size: 25px 25px;
+	background-color: transparent;
 	margin-right: 1.6em;
 	margin-bottom: 0.6em;
 }
