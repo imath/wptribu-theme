@@ -23,6 +23,13 @@ if ( is_post_archive() ) {
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+
+					if ( ! have_posts() && current_user_can( 'publish_posts' ) ) {
+						echo sprintf(
+							'<div class="taxonomy-empty">%s</div>',
+							esc_html__( 'This category has no posts yet. Be the first to add one!', 'wptribu' )
+						);
+					}
 				?>
 			</header><!-- .page-header -->
 			<div id="content">

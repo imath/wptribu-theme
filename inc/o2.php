@@ -90,7 +90,7 @@ function unhook( $content = '' ) {
 function restrict_o2() {
 	global $o2;
 
-	if ( is_a( $o2, 'o2' ) && 'post' !== get_post_type() ) {
+	if ( is_a( $o2, 'o2' ) && 'post' !== get_post_type() && ! is_post_archive() ) {
 		remove_action( 'wp_head', array( $o2, 'wp_head' ), 100 );
 		remove_action( 'wp_footer', array( $o2, 'wp_footer' ) );
 		remove_action( 'wp_footer', array( $o2, 'scripts_and_styles' ) );
@@ -246,3 +246,69 @@ function o2_filter_widget_filters( $filters = array() ) {
 	return $filters;
 }
 add_filter( 'o2_filter_widget_filters', __NAMESPACE__ . '\o2_filter_widget_filters', 10, 1 );
+
+/**
+ * Allow the Front end editor to be loaded on category pages.
+ *
+ * @since 1.0.0
+ *
+ * @param array $options o2 options.
+ * @return array o2 options.
+ */
+function o2_filter_options( $options = array() ) {
+	if ( is_category() ) {
+		$options['options']['showFrontSidePostBox'] = is_user_logged_in() && current_user_can( 'publish_posts' );
+	} elseif ( is_search() ) {
+		$options['options']['showFrontSidePostBox'] = false;
+	}
+
+	return $options;
+}
+add_filter( 'o2_options', __NAMESPACE__ . '\o2_filter_options' );
+
+/**
+ * Make sure to assign the category corresponding to the displayed page.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_Post $post The Post object.
+ * @return WP_Post The post object.
+ */
+function o2_create_post( $post ) {
+	$home_url = home_url();
+	$url      = '';
+
+	if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
+		$url = wp_unslash( $_SERVER['HTTP_REFERER'] ); // phpcs:ignore
+	}
+
+	if ( $url !== $home_url ) {
+		$parts = wp_parse_url( $url );
+
+		$category_base = 'category';
+		if ( $custom_base = get_option( 'category_base' ) ) { // phpcs:ignore
+			$category_base = $custom_base;
+		}
+
+		$category_part = str_replace( trailingslashit( $home_url ) . $category_base, '', $parts['scheme'] . '://' . $parts['host'] . $parts['path'] );
+		$category_slug = explode( '/', trim( $category_part, '/' ) )[0];
+
+		$category = get_category_by_slug( $category_slug );
+		if ( isset( $category->term_id ) && $category->term_id ) {
+			$post->post_category = array( $category->term_id );
+		}
+	}
+
+	return $post;
+}
+add_filter( 'o2_create_post', __NAMESPACE__ . '\o2_create_post', 10, 1 );
+
+function widget_categories_args( $args = array() ) {
+	return array_merge(
+		$args,
+		array(
+			'hide_empty' => false,
+		)
+	);
+}
+add_filter( 'widget_categories_args', __NAMESPACE__ . '\widget_categories_args', 10, 1 );
