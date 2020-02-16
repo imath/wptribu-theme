@@ -14,3 +14,13 @@ body.archive-post {
 		width: 960px;
 	}
 }
+
+body.blog {
+
+	.o2-post {
+		border-top: 1px solid $color__text-screen;
+		padding: 0.8em;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+	}
+}

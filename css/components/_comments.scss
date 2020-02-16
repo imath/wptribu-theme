@@ -208,3 +208,25 @@
 		color: #c0392b;
 	}
 }
+
+.o2-posts {
+
+	.o2-post-comments {
+		margin: 0;
+
+		.o2-comment {
+			border-top: 1px solid rgba(0, 0, 0, 0.13);
+			margin: 0;
+		}
+
+		> .o2-comment,
+		.o2-child-comments > .o2-comment {
+			padding: 0.8em 0.8em 0 0.8em;
+		}
+
+		/* Threaded comments is quickly a mess */
+		.o2-child-comments {
+			margin: 0 -0.8em;
+		}
+	}
+}

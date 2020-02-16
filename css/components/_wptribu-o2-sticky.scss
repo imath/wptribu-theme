@@ -1,0 +1,25 @@
+.o2-posts {
+
+	 .sticky {
+
+		.o2-post {
+			border: 0;
+			border-top: 2px solid $color__wp-blue;
+			background: #e5f5fa;
+			padding-top: 3em;
+			position: relative;
+		}
+
+		.o2-post:after {
+			content: "\f109";
+			font-family: dashicons;
+			position: absolute;
+			top: -2px;
+			right: 45px;
+			color: #fff;
+			font-size: 18px;
+			padding: 13px 5px 0px;
+			background: $color__wp-blue;
+		}
+	 }
+}
