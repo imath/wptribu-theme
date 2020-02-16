@@ -312,3 +312,16 @@ function widget_categories_args( $args = array() ) {
 	);
 }
 add_filter( 'widget_categories_args', __NAMESPACE__ . '\widget_categories_args', 10, 1 );
+
+function o2_scripts() {
+	$suffix = get_scripts_min();
+
+	wp_enqueue_script(
+		'wptribu-o2',
+		get_template_directory_uri() . "/js/o2-reply$suffix.js",
+		array( 'o2-app', 'jquery' ),
+		'1.0.0',
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\o2_scripts', 200 );

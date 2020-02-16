@@ -133,10 +133,7 @@ function content_width() {
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\content_width', 0 );
 
-/**
- * Enqueue scripts and styles.
- */
-function scripts() {
+function get_scripts_min() {
 	$suffix       = '.min';
     $script_debug = false;
 
@@ -148,7 +145,16 @@ function scripts() {
 	// Concatenates core scripts when possible.
 	if ( ! $script_debug ) {
 		$GLOBALS['concatenate_scripts'] = true;
-    }
+	}
+
+	return $suffix;
+}
+
+/**
+ * Enqueue scripts and styles.
+ */
+function scripts() {
+	$suffix = get_scripts_min();
 
 	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.InlineComment.InvalidEndChar
 	wp_enqueue_script(
