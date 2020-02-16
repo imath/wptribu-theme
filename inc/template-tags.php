@@ -133,3 +133,21 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_taxonomies' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( __NAMESPACE__ . '\get_site_description' ) ) :
+	function get_site_description() {
+		$description = get_bloginfo( 'description' );
+
+		if ( ! $description ) {
+			$description = __( 'The best way to learn WordPress is to contribute to it.', 'wptribu' );
+		}
+
+		return $description;
+	}
+endif;
+
+if ( ! function_exists( __NAMESPACE__ . '\the_site_description' ) ) :
+	function the_site_description() {
+		echo esc_html( get_site_description() );
+	}
+endif;

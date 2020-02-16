@@ -217,7 +217,8 @@ function o2_filter_widget_filters( $filters = array() ) {
 	$archive = get_post_type_archive_link( 'post' );
 
 	if ( isset( $filters['filter-none.o2'] ) ) {
-		$filters['filter-none.o2']['url'] = esc_url( $archive );
+		$filters['filter-none.o2']['label'] = esc_html__( 'Latest news', 'wptribu' );
+		$filters['filter-none.o2']['url']   = esc_url( $archive );
 	}
 
 	if ( isset( $filters['filter-recent-comments.o2'] ) ) {

@@ -19,7 +19,9 @@ the_post();
 
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <header class="entry-header">
-                <h1 class="entry-title"><?php esc_html_e( 'Thanks for sharing some of your time with the wpTribe', 'wptribu' ); ?></h1>
+				<h1 class="entry-title"><?php the_site_description(); ?></h1>
+
+				<div class="dashicons dashicons-wordpress-alt"></div>
 
                 <p class="entry-description">
                     <?php esc_html_e( 'The freedom to meet. The freedom to connect. The freedom to contribute to WordPress.', 'wptribu' ); ?>
