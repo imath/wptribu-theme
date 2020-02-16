@@ -8,6 +8,7 @@
 				data: {
 					context: 'view',
 					search: search,
+					search_type: 'wptribu_mentions'
 				}
 			} ).done( function( users ) {
 				results( users );

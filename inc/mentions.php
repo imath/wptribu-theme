@@ -140,6 +140,25 @@ function enqueue_mention_script() {
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_mention_script', 20 );
 
 /**
+ * Allows users to list others.
+ *
+ * @since 1.O.O
+ *
+ * @param array           $prepared_args Array of arguments for WP_User_Query.
+ * @param WP_REST_Request $request       The current request.
+ * @return array Array of arguments for WP_User_Query.
+ */
+function allow_mentions_query( $prepared_args, $request ) {
+	if ( 'wptribu_mentions' === $request->get_param( 'search_type' ) ) {
+		unset( $prepared_args['has_published_posts'] );
+		$prepared_args['exclude'] = array( get_current_user_id() );
+	}
+
+	return $prepared_args;
+}
+add_filter( 'rest_user_query', __NAMESPACE__ . '\allow_mentions_query', 10, 2 );
+
+/**
  * Saves mentions for a post or a comment.
  *
  * @since 1.0.0
@@ -276,3 +295,24 @@ function insert_comment_mentions( $id = 0, $comment = null ) {
 	save_mentions( $comment );
 }
 add_action( 'wp_insert_comment', __NAMESPACE__ . '\insert_comment_mentions', 10, 2 );
+
+/**
+ * Neutralize mention links from moderated links.
+ *
+ * @since 1.0.0
+ *
+ * @param int    $num_links The number of links found.
+ * @param string $url       Comment author's URL. Included in allowed links total.
+ * @param string $comment   Content of the comment.
+ * @return int              The number of links found (without mention links).
+ */
+function comment_max_links_url( $num_links = 0, $url = '', $comment = '' ) {
+	$pattern       = '/<a [^>]*' . addcslashes( home_url( '/author' ), '/' ) . '/i';
+	$mention_links = preg_match_all( $pattern, $comment, $out );
+	if ( $mention_links ) {
+		$num_links -= $mention_links;
+	}
+
+	return $num_links;
+}
+add_filter( 'comment_max_links_url', __NAMESPACE__ . '\comment_max_links_url', 10, 3 );
