@@ -15,7 +15,8 @@ body.archive-post {
 	}
 }
 
-body.blog {
+body.blog,
+body.archive-post {
 
 	.o2-post {
 		border-top: 1px solid $color__text-screen;

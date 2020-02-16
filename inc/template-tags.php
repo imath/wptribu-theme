@@ -7,6 +7,11 @@
 
 namespace WPTribu\Theme;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! function_exists( __NAMESPACE__ . '\entry_meta' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags.

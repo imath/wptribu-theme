@@ -7,6 +7,11 @@
 
 namespace WPTribu\Theme;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Dequeue o2 scripts & styles when needed.
  *

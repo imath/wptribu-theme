@@ -9,6 +9,11 @@
 
 namespace WPTribu\Theme;
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 function setup_theme() {
 	// Add Title tag support.
 	add_theme_support( 'title-tag' );
@@ -282,6 +287,14 @@ add_action( 'customize_preview_init', __NAMESPACE__ . '\customize_preview_js' );
  */
 require_once get_theme_file_path( '/inc/template-tags.php' );
 
+/**
+ * Mentions.
+ */
+require_once get_theme_file_path( '/inc/mentions.php' );
+
+/**
+ * o2 customizations.
+ */
 if ( class_exists( 'o2' ) ) {
 	require_once get_theme_file_path( '/inc/o2.php' );
 }
