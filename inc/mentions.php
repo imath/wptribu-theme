@@ -87,7 +87,7 @@ function set_mentions( $text = '' ) {
 
 		// Linkify the mentions with the username.
 		foreach ( $mentions as $user_id => $user_data ) {
-			$text = preg_replace( '/(@' . $user_data->slug . '\b)/', "<a class='o2-citron-mention' href='" . esc_url( $user_data->url ) . "' rel='nofollow'>@{$user_data->slug}</a>", $text );
+			$text = preg_replace( '/(@' . $user_data->slug . '\b)/', "<a class='wptribu-mention' href='" . esc_url( $user_data->url ) . "' rel='nofollow'>@{$user_data->slug}</a>", $text );
 		}
 
 		// Put everything back.
@@ -316,3 +316,77 @@ function comment_max_links_url( $num_links = 0, $url = '', $comment = '' ) {
 	return $num_links;
 }
 add_filter( 'comment_max_links_url', __NAMESPACE__ . '\comment_max_links_url', 10, 3 );
+
+/**
+ * Extracts mentions arguments from the given URL.
+ *
+ * @since 1.0.0
+ *
+ * @param string $url The url to look into.
+ * @return array The mentions arguments.
+ */
+function get_mentions_args( $url = '' ) {
+	$args = array();
+
+	$query_vars = wp_parse_args(
+		wp_parse_url( $url, PHP_URL_QUERY ),
+		array(
+			'mentions' => '',
+		)
+	);
+
+	if ( $query_vars['mentions'] ) {
+		$username = sanitize_user( wp_unslash( $query_vars['mentions'] ) );
+		$user     = get_user_by( 'slug', $username );
+
+		if ( $user ) {
+			$args = array(
+				'meta_key'   => '_wptribu_mentions',
+				'meta_value' => (int) $user->ID,
+			);
+		}
+	}
+
+	return $args;
+}
+
+/**
+ * Overrides the Posts Query for mentions if needed.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_Query $posts_query The WordPress query object.
+ */
+function parse_query( $posts_query ) {
+	// Bail eventually.
+	if ( ! $posts_query->is_main_query() || true === $posts_query->get( 'suppress_filters' ) || 1 !== (int) $posts_query->is_posts_page ) {
+		return;
+	}
+
+	$mention_args = get_mentions_args( $_SERVER['REQUEST_URI'] );
+	if ( $mention_args ) {
+		foreach ( $mention_args as $key => $value ) {
+			$posts_query->set( $key, $value );
+		}
+	}
+}
+add_action( 'parse_query', __NAMESPACE__ . '\parse_query', 10, 1 );
+
+/**
+ * Checks if there are mentions to display for the o2 read API.
+ *
+ * @since 1.0.0
+ *
+ * @param array $args The query arguments used by the o2 read API.
+ * @return array The query arguments used by the o2 read API.
+ */
+function o2_query_args( $args = array() ) {
+	$mention_args = get_mentions_args( wp_get_referer() );
+
+	if ( $mention_args ) {
+		$args = array_merge( $args, $mention_args );
+	}
+
+	return $args;
+}
+add_filter( 'o2_get_posts_query_args', __NAMESPACE__ . '\o2_query_args', 10, 2 );

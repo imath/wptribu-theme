@@ -263,7 +263,7 @@ add_filter( 'o2_filter_widget_filters', __NAMESPACE__ . '\o2_filter_widget_filte
 function o2_filter_options( $options = array() ) {
 	if ( is_category() ) {
 		$options['options']['showFrontSidePostBox'] = is_user_logged_in() && current_user_can( 'publish_posts' );
-	} elseif ( is_search() ) {
+	} elseif ( is_search() || isset( $_GET['mentions'] ) ) {
 		$options['options']['showFrontSidePostBox'] = false;
 	}
 

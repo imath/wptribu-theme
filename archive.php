@@ -21,15 +21,58 @@ if ( is_post_archive() ) {
 		<main id="main" class="site-main col-9" role="main">
 			<header class="page-header">
 				<?php
+				if ( is_author() ) {
+					if ( have_posts() ) {
+						/* Queue the first post, that way we know
+						* what author we're dealing with (if that is the case).
+						*/
+						the_post();
+						printf(
+							'<h1 class="page-title">%s</h1>',
+							sprintf(
+								esc_html__( 'Author Archives: %s', 'wptribu' ),
+								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>'
+							)
+						);
+
+						if ( (bool) get_the_author_meta( 'description' ) ) {
+							printf(
+								'<div class="author-description">%s</div><!-- .author-description -->',
+								wp_kses_post( wpautop( get_the_author_meta( 'description' ) ) )
+							);
+						}
+
+						/* Since we called the_post() above, we need to
+						* rewind the loop back to the beginning that way
+						* we can run the loop properly, in full.
+						*/
+						rewind_posts();
+					} elseif ( is_a( get_queried_object(), 'WP_User' ) ) {
+						$user = get_queried_object();
+						printf(
+							'<h1 class="page-title">%s</h1>',
+							sprintf(
+								esc_html__( 'Author Archives: %s', 'wptribu' ),
+								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( $user->ID ) ) . '" title="' . esc_attr( $user->display_name ) . '" rel="me">' . esc_html( $user->display_name ) . '</a></span>'
+							)
+						);
+
+						printf(
+							'<div class="author-empty">%s</div>',
+							esc_html__( 'This author has no posts yet.', 'wptribu' )
+						);
+					}
+				} else {
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 
-					if ( ! have_posts() && current_user_can( 'publish_posts' ) ) {
-						echo sprintf(
+					if ( is_category() && ! have_posts() && current_user_can( 'publish_posts' ) ) {
+						printf(
 							'<div class="taxonomy-empty">%s</div>',
 							esc_html__( 'This category has no posts yet. Be the first to add one!', 'wptribu' )
 						);
 					}
+				}
 				?>
 			</header><!-- .page-header -->
 			<div id="content">
@@ -41,7 +84,7 @@ if ( is_post_archive() ) {
 
 	<?php if ( have_posts() ) : ?>
 
-		<?php if ( ! is_post_archive( 'post' ) ) : ?>
+		<?php if ( ! is_post_archive() ) : ?>
 			<header class="page-header">
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
