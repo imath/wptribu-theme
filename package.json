@@ -1,5 +1,5 @@
 {
-  "name": "wptribu",
+  "name": "wptribu-theme",
   "version": "1.0.0",
   "description": "Theme for wptribu.org",
   "author": "imath",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/imath/wptribu"
+    "url": "https://github.com/imath/wptribu-theme"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.4",

@@ -24,7 +24,7 @@ the_post();
 				<div class="dashicons dashicons-wordpress-alt"></div>
 
                 <p class="entry-description">
-                    <?php esc_html_e( 'The freedom to meet. The freedom to connect. The freedom to contribute to WordPress.', 'wptribu' ); ?>
+                    <?php esc_html_e( 'The freedom to meet. The freedom to connect. The freedom to contribute to WordPress.', 'wptribu-theme' ); ?>
                 </p>
             </header><!-- .entry-header -->
 
@@ -33,7 +33,7 @@ the_post();
                 the_content();
 
                 wp_link_pages( array(
-                    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wptribu' ),
+                    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wptribu-theme' ),
                     'after'  => '</div>',
                 ) );
                 ?>
@@ -44,7 +44,7 @@ the_post();
                 edit_post_link(
                     sprintf(
                         /* translators: %s: Name of current post */
-                        esc_html__( 'Edit %s', 'wptribu' ),
+                        esc_html__( 'Edit %s', 'wptribu-theme' ),
                         the_title( '<span class="screen-reader-text">"', '"</span>', false )
                     ),
                     '<span class="edit-link">',

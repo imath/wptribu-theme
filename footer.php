@@ -22,15 +22,15 @@ namespace WPTribu\Theme;
 					<?php
 					echo date_i18n(
 						/* translators: Copyright date format, see https://secure.php.net/date */
-						_x( 'Y', 'copyright date format', 'wptribu' )
+						_x( 'Y', 'copyright date format', 'wptribu-theme' )
 					);
 					?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
 				&nbsp;|&nbsp;
 
 				<span class="powered-by-wordpress">
-					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wptribu' ) ); ?>">
-						<?php _e( 'Powered by WordPress', 'wptribu' ); ?>
+					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wptribu-theme' ) ); ?>">
+						<?php _e( 'Powered by WordPress', 'wptribu-theme' ); ?>
 					</a>
 				</span><!-- .powered-by-wordpress -->
 
@@ -41,14 +41,14 @@ namespace WPTribu\Theme;
 					<span class="to-the-top-long">
 						<?php
 						/* translators: %s: HTML character for up arrow */
-						printf( __( 'To the top %s', 'wptribu' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+						printf( __( 'To the top %s', 'wptribu-theme' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
 						?>
 					</span><!-- .to-the-top-long -->
 				</a><!-- .to-the-top -->
 			</div>
 		</div>
 	</div>
-	<p class="cip cip-image"><?php esc_html_e( 'Code is Poetry.', 'wptribu' ); ?></p>
+	<p class="cip cip-image"><?php esc_html_e( 'Code is Poetry.', 'wptribu-theme' ); ?></p>
 </div>
 
 <?php wp_footer(); ?>

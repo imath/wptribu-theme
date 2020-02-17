@@ -20,7 +20,7 @@ get_template_part( 'header' );
 			<?php endif; ?>
 
             <nav id="site-navigation" class="main-navigation" role="navigation">
-                <button class="menu-toggle dashicons dashicons-arrow-down-alt2" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e( 'Primary Menu', 'wptribu' ); ?>"></button>
+                <button class="menu-toggle dashicons dashicons-arrow-down-alt2" aria-controls="primary-menu" aria-expanded="false" aria-label="<?php esc_attr_e( 'Primary Menu', 'wptribu-theme' ); ?>"></button>
 
                 <?php page_menu(); ?>
             </nav><!-- #site-navigation -->

@@ -45,11 +45,11 @@ if ( 'post' === get_post_type() ) {
 				// Previous/next post navigation.
 				the_post_navigation( [
 					// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
-					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'wptribu' ) . '</span> ' .
-								'<span class="screen-reader-text">' . __( 'Next post:', 'wptribu' ) . '</span> ' .
+					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'wptribu-theme' ) . '</span> ' .
+								'<span class="screen-reader-text">' . __( 'Next post:', 'wptribu-theme' ) . '</span> ' .
 								'<span class="post-title">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'wptribu' ) . '</span> ' .
-								'<span class="screen-reader-text">' . __( 'Previous post:', 'wptribu' ) . '</span> ' .
+					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'wptribu-theme' ) . '</span> ' .
+								'<span class="screen-reader-text">' . __( 'Previous post:', 'wptribu-theme' ) . '</span> ' .
 								'<span class="post-title">%title</span>',
 					// phpcs:enable WordPress.WhiteSpace.PrecisionAlignment.Found
 				] );

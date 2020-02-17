@@ -30,7 +30,7 @@ if ( is_post_archive() ) {
 						printf(
 							'<h1 class="page-title">%s</h1>',
 							sprintf(
-								esc_html__( 'Author Archives: %s', 'wptribu' ),
+								esc_html__( 'Author Archives: %s', 'wptribu-theme' ),
 								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>'
 							)
 						);
@@ -52,14 +52,14 @@ if ( is_post_archive() ) {
 						printf(
 							'<h1 class="page-title">%s</h1>',
 							sprintf(
-								esc_html__( 'Author Archives: %s', 'wptribu' ),
+								esc_html__( 'Author Archives: %s', 'wptribu-theme' ),
 								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( $user->ID ) ) . '" title="' . esc_attr( $user->display_name ) . '" rel="me">' . esc_html( $user->display_name ) . '</a></span>'
 							)
 						);
 
 						printf(
 							'<div class="author-empty">%s</div>',
-							esc_html__( 'This author has no posts yet.', 'wptribu' )
+							esc_html__( 'This author has no posts yet.', 'wptribu-theme' )
 						);
 					}
 				} else {
@@ -69,7 +69,7 @@ if ( is_post_archive() ) {
 					if ( is_category() && ! have_posts() && current_user_can( 'publish_posts' ) ) {
 						printf(
 							'<div class="taxonomy-empty">%s</div>',
-							esc_html__( 'This category has no posts yet. Be the first to add one!', 'wptribu' )
+							esc_html__( 'This category has no posts yet. Be the first to add one!', 'wptribu-theme' )
 						);
 					}
 				}

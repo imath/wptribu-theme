@@ -35,7 +35,7 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_meta' ) ) :
 			// phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 			printf(
 				/* translators: 1: post date 2: post author */
-				'<span class="posted-on">' . __( 'Posted on %1$s by %2$s.', 'wptribu' ) . '</span>',
+				'<span class="posted-on">' . __( 'Posted on %1$s by %2$s.', 'wptribu-theme' ) . '</span>',
 				$time_string,
 				$author_string
 			);
@@ -46,7 +46,7 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_meta' ) ) :
 		if ( current_theme_supports( 'post-formats', $format ) ) {
 			printf(
 				'<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-				sprintf( '<span class="screen-reader-text">%s </span>', esc_html_x( 'Format', 'Used before post format.', 'wptribu' ) ),
+				sprintf( '<span class="screen-reader-text">%s </span>', esc_html_x( 'Format', 'Used before post format.', 'wptribu-theme' ) ),
 				esc_url( get_post_format_link( $format ) ),
 				esc_html( get_post_format_string( $format ) )
 			);
@@ -60,7 +60,7 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_meta' ) ) :
 			echo '<span class="comments-link">';
 			comments_popup_link( sprintf(
 				/* translators: Post title. */
-				__( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'wptribu' ),
+				__( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'wptribu-theme' ),
 				get_the_title()
 			) );
 			echo '</span>';
@@ -100,7 +100,7 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_date' ) ) :
 	function entry_date() {
 		printf(
 			'<span class="posted-on">%1$s <a href="%2$s" rel="bookmark">%3$s</a></span>',
-			esc_html_x( 'Posted on', 'Used before publish date.', 'wptribu' ),
+			esc_html_x( 'Posted on', 'Used before publish date.', 'wptribu-theme' ),
 			esc_url( get_permalink() ),
 			get_entry_date() // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		);
@@ -114,20 +114,20 @@ if ( ! function_exists( __NAMESPACE__ . '\entry_taxonomies' ) ) :
 	 * Create your own WPTribu\Theme\entry_taxonomies() function to override in a child theme.
 	 */
 	function entry_taxonomies() {
-		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'wptribu' ) );
+		$categories_list = get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', 'wptribu-theme' ) );
 		if ( $categories_list ) {
 			printf(
 				'<span class="cat-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-				esc_html_x( 'Categories', 'Used before category names.', 'wptribu' ),
+				esc_html_x( 'Categories', 'Used before category names.', 'wptribu-theme' ),
 				$categories_list // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 			);
 		}
 
-		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'wptribu' ) );
+		$tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'wptribu-theme' ) );
 		if ( $tags_list ) {
 			printf(
 				'<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-				esc_html_x( 'Tags', 'Used before tag names.', 'wptribu' ),
+				esc_html_x( 'Tags', 'Used before tag names.', 'wptribu-theme' ),
 				$tags_list // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 			);
 		}
@@ -139,7 +139,7 @@ if ( ! function_exists( __NAMESPACE__ . '\get_site_description' ) ) :
 		$description = get_bloginfo( 'description' );
 
 		if ( ! $description ) {
-			$description = __( 'The best way to learn WordPress is to contribute to it.', 'wptribu' );
+			$description = __( 'The best way to learn WordPress is to contribute to it.', 'wptribu-theme' );
 		}
 
 		return $description;

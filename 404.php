@@ -15,12 +15,12 @@ get_header(); ?>
 
 		<section class="error-404 not-found">
 			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wptribu' ); ?></h1>
+				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wptribu-theme' ); ?></h1>
 				<p class="page-description">
 					<?php
 					printf(
 						/* translators: Home URL. */
-						__( 'Try searching from the field above, or go to the <a href="%s">home page</a>.', 'wptribu' ), // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+						__( 'Try searching from the field above, or go to the <a href="%s">home page</a>.', 'wptribu-theme' ), // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 						esc_url( get_home_url() )
 					);
 					?>

@@ -184,13 +184,13 @@ function save_mentions( $object = null ) {
 		$mentions = get_mentions( $content );
 
 		/* translators: Mention notification email subject. %s: Site title. */
-		$subject = sprintf( __( '[%s] New post mention', 'wptribu' ), $blogname );
+		$subject = sprintf( __( '[%s] New post mention', 'wptribu-theme' ), $blogname );
 
 		/* translators: %s: Post title. */
-		$notify_message = sprintf( __( 'You have been mentioned into the post: "%s"', 'wptribu' ), esc_html( $object->post_title ) ) . "\r\n\r\n";
+		$notify_message = sprintf( __( 'You have been mentioned into the post: "%s"', 'wptribu-theme' ), esc_html( $object->post_title ) ) . "\r\n\r\n";
 
 		/* translators: %s: Post URL. */
-		$notify_message .= sprintf( __( 'Go to the post: %s', 'wptribu' ), get_permalink( $object->ID ) ) . "\r\n";
+		$notify_message .= sprintf( __( 'Go to the post: %s', 'wptribu-theme' ), get_permalink( $object->ID ) ) . "\r\n";
 	} elseif ( $is_comment ) {
 		// Disable mentions filter.
 		remove_filter( 'comment_text', __NAMESPACE__ . '\set_mentions', 100 );
@@ -204,13 +204,13 @@ function save_mentions( $object = null ) {
 		$mentions = get_mentions( $content );
 
 		/* translators: %s: Site title. */
-		$subject = sprintf( __( '[%s] New comment mention', 'wptribu' ), $blogname );
+		$subject = sprintf( __( '[%s] New comment mention', 'wptribu-theme' ), $blogname );
 
 		/* translators: %s: Post title. */
-		$notify_message = sprintf( __( 'You have been mentioned into a comment of the post: "%s"', 'wptribu' ), esc_html( $object->post_parent->post_title ) ) . "\r\n\r\n";
+		$notify_message = sprintf( __( 'You have been mentioned into a comment of the post: "%s"', 'wptribu-theme' ), esc_html( $object->post_parent->post_title ) ) . "\r\n\r\n";
 
 		/* translators: %s: Comment URL. */
-		$notify_message .= sprintf( __( 'Go to the comment: %s', 'wptribu' ), get_comment_link( $object ) ) . "\r\n";
+		$notify_message .= sprintf( __( 'Go to the comment: %s', 'wptribu-theme' ), get_comment_link( $object ) ) . "\r\n";
 	}
 
 	if ( $mentions ) {

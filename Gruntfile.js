@@ -9,7 +9,7 @@
 require( 'es6-promise' ).polyfill();
 
 module.exports = function( grunt ) {
-	var isChild = 'wptribu' !== grunt.file.readJSON( 'package.json' ).name;
+	var isChild = 'wptribu-theme' !== grunt.file.readJSON( 'package.json' ).name;
 
 	grunt.initConfig({
 		postcss: {
@@ -75,7 +75,7 @@ module.exports = function( grunt ) {
 					var files = {};
 
 					['settings', 'tools', 'generic', 'base', 'objects', 'components', 'trumps'].forEach( function( component ) {
-						var paths = [ '../wptribu/css/' + component + '/**/*.scss', '!../wptribu/css/' + component + '/_' + component + '.scss' ];
+						var paths = [ '../wptribu-theme/css/' + component + '/**/*.scss', '!../wptribu-theme/css/' + component + '/_' + component + '.scss' ];
 
 						if ( isChild ) {
 							paths.push( 'css/' + component + '/**/*.scss' );

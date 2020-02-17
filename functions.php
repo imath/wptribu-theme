@@ -26,8 +26,8 @@ function setup_theme() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'header'  => esc_html__( 'Header', 'wptribu' ),
-		'primary' => esc_html__( 'Primary', 'wptribu' ),
+		'header'  => esc_html__( 'Header', 'wptribu-theme' ),
+		'primary' => esc_html__( 'Primary', 'wptribu-theme' ),
 	) );
 
 	/*
@@ -64,7 +64,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
  */
 function widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'wptribu' ),
+		'name'          => __( 'Sidebar', 'wptribu-theme' ),
 		'id'            => 'sidebar-1',
 		'before_widget' => '<div id="%1$s" class="%2$s">',
 		'after_widget'  => '</div></div>',
@@ -73,7 +73,7 @@ function widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'o2 Sidebar', 'wptribu' ),
+		'name'          => __( 'o2 Sidebar', 'wptribu-theme' ),
 		'id'            => 'sidebar-o2',
 		'before_widget' => '<div id="%1$s" class="box gray widget %2$s">',
 		'after_widget'  => '</div></div>',
@@ -90,7 +90,7 @@ add_action( 'widgets_init', __NAMESPACE__ . '\widgets_init' );
  */
 function styles() {
     wp_enqueue_style(
-        'wptribu',
+        'wptribu-theme',
         get_theme_file_uri( '/css/style.css' ),
         array(
             'dashicons',
@@ -98,9 +98,9 @@ function styles() {
         ),
         '1.0.0'
     );
-	wp_style_add_data( 'wptribu', 'rtl', 'replace' );
+	wp_style_add_data( 'wptribu-theme', 'rtl', 'replace' );
 	wp_add_inline_style(
-		'wptribu',
+		'wptribu-theme',
 		sprintf(
 			'.o2-save-spinner {
 				height: 40px;

@@ -20,7 +20,7 @@ get_header(); ?>
 					<?php
 					printf(
 						/* translators: Search query. */
-						esc_html__( 'Search Results for: %s', 'wptribu' ),
+						esc_html__( 'Search Results for: %s', 'wptribu-theme' ),
 						get_search_query()
 					);
 					?>
@@ -52,7 +52,7 @@ get_header(); ?>
 						edit_post_link(
 							sprintf(
 								/* translators: %s: Name of current post */
-								__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'wptribu' ),
+								__( 'Edit<span class="screen-reader-text"> "%s"</span>', 'wptribu-theme' ),
 								get_the_title()
 							),
 							'<span class="edit-link">',
