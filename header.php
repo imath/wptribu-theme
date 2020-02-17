@@ -30,7 +30,7 @@ namespace WPTribu\Theme;
 		<a class="skip-link screen-reader-text" href="#page-content"><?php esc_html_e( 'Skip to content', 'wptribu-theme' ); ?></a>
         <h1><a href="<?php echo esc_url( get_home_url( null, '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<div style="clear:both"></div>
-		<button id="mobile-menu-button" aria-expanded="false"><span class="screen-reader-text">Toggle Menu</span></button>
+		<button id="mobile-menu-button" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Toggle Menu', 'wptribu-theme' ); ?></span></button>
 
 		<?php
 

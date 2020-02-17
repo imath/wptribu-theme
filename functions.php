@@ -159,22 +159,31 @@ function get_scripts_min() {
  * Enqueue scripts and styles.
  */
 function scripts() {
-	$suffix = get_scripts_min();
+	$suffix  = get_scripts_min();
+	$version = '1.0.0';
+
+	if ( ! $suffix ) {
+		$version = filemtime( get_theme_file_path( "/js/navigation$suffix.js" ) );
+	}
 
 	// phpcs:ignore Squiz.PHP.CommentedOutCode.Found, Squiz.Commenting.InlineComment.InvalidEndChar
 	wp_enqueue_script(
 		'wptribu-navigation',
 		get_template_directory_uri() . "/js/navigation$suffix.js",
 		array(),
-		'1.0.0',
+		$version,
 		true
 	);
+
+	if ( ! $suffix ) {
+		$version = filemtime( get_theme_file_path( "/js/skip-link-focus-fix$suffix.js" ) );
+	}
 
 	wp_enqueue_script(
 		'wptribu-plugins-skip-link-focus-fix',
 		get_template_directory_uri() . "/js/skip-link-focus-fix$suffix.js",
 		array(),
-		'1.0.0',
+		$version,
 		true
 	);
 
@@ -281,6 +290,27 @@ function customize_preview_js() {
 	);
 }
 add_action( 'customize_preview_init', __NAMESPACE__ . '\customize_preview_js' );
+
+/**
+ * Appends a contribute menu when the user is not yet logged in.
+ *
+ * @since 1.0.0
+ *
+ * @param string $items The HTML list content for the menu items.
+ * @return string The HTML list content for the menu items.
+ */
+function entete_menu_items( $items = '' ) {
+	if ( ! is_user_logged_in() && class_exists( 'wpTribu\SSO\WPTribu_SSO' ) ) {
+		$items .= sprintf(
+			'<li id="contribute" class="button contribute-button"><a href="%1$s">%2$s</a></li>',
+			esc_url( wp_login_url() ),
+			esc_html__( 'Contribute', 'wptribu-theme' )
+		);
+	}
+
+	return $items;
+}
+add_filter( 'wp_nav_menu_entete_items', __NAMESPACE__ . '\entete_menu_items', 10, 1 );
 
 /**
  * Custom template tags.

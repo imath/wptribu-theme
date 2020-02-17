@@ -8,28 +8,20 @@
  */
 
 ( function() {
-	var container, button, menu, links, subMenus, i, len;
+	var container, button, links, subMenus, i, len;
 
-	container = document.getElementById( 'site-navigation' );
+	container = document.getElementById( 'wptribu-header-menu' );
 	if ( ! container ) {
 		return;
 	}
 
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
+	button = document.getElementById( 'mobile-menu-button' );
+	if ( ! button ) {
 		return;
 	}
 
-	menu = container.getElementsByTagName( 'ul' )[0];
-
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
-
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
+	if ( -1 === container.className.indexOf( 'nav-menu' ) ) {
+		container.className += ' nav-menu';
 	}
 
 	button.onclick = function() {
@@ -43,8 +35,8 @@
 	};
 
 	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
-	subMenus = menu.getElementsByTagName( 'ul' );
+	links    = container.getElementsByTagName( 'a' );
+	subMenus = container.getElementsByTagName( 'ul' );
 
 	// Set menu items with submenus to aria-haspopup="true".
 	for ( i = 0, len = subMenus.length; i < len; i++ ) {
