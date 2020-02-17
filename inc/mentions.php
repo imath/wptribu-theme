@@ -245,8 +245,7 @@ function save_mentions( $object = null ) {
 				}
 
 				if ( $is_new_mention || $is_comment ) {
-					$from     = "From: \"$user_data->name\" <$wp_email>";
-					$reply_to = "Reply-To: \"$user_data->email\" <$user_data->email>";
+					$from = "From: [$blogname] <$wp_email>";
 
 					$message_headers  = "$from\n"
 					. 'Content-Type: text/plain; charset="' . get_option( 'blog_charset' ) . "\"\n";
