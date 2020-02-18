@@ -155,6 +155,10 @@ function get_scripts_min() {
 	return $suffix;
 }
 
+function is_post_archive() {
+	return is_post_type_archive( 'post' ) || is_tag() || is_category() || is_date() || is_archive();
+}
+
 /**
  * Enqueue scripts and styles.
  */
@@ -190,12 +194,34 @@ function scripts() {
 	if ( ! is_front_page() && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if ( is_home() || is_post_archive() || ( is_single() && 'post' === get_post_type() ) ) {
+		if ( ! $suffix ) {
+			$version = filemtime( get_theme_file_path( "/js/mobile-helper$suffix.js" ) );
+		}
+
+		wp_enqueue_script(
+			'wptribu-mobile-helper',
+			get_template_directory_uri() . "/js/mobile-helper$suffix.js",
+			array(),
+			$version,
+			true
+		);
+
+		if ( ! $suffix ) {
+			$version = filemtime( get_theme_file_path( "/js/breathe$suffix.js" ) );
+		}
+
+		wp_enqueue_script(
+			'wptribu-breathe',
+			get_template_directory_uri() . "/js/breathe$suffix.js",
+			array( 'wptribu-mobile-helper', 'o2-enquire' ),
+			$version,
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\scripts', 10 );
-
-function is_post_archive() {
-	return is_post_type_archive( 'post' ) || is_tag() || is_category() || is_date() || is_archive();
-}
 
 /**
  * Extends the default WordPress body classes.

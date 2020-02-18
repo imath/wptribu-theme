@@ -201,39 +201,3 @@ $tablet-landscape: 1024px;
 $tablet-portrait: 876px;
 $handset-landscape: 640px;
 $handset-portrait: 550px;
-
-
-// OLD SCHOOL LAME VERSION
-
-@mixin breakpoint( $size ) {
-
-  @if ( $size == web ){
-      @media( max-width : $web ) {
-        @content;
-      }
-    }
-
-  @if ( $size == tablet-landscape ){
-      @media( max-width : $tablet-landscape ) {
-        @content;
-      }
-    }
-
-  @if ( $size == tablet-portrait ){
-      @media( max-width : $tablet-portrait ) {
-        @content;
-      }
-    }
-
-  @if ( $size == handset-landscape ){
-      @media( max-width : $handset-landscape ) {
-        @content;
-      }
-    }
-
-  @if ( $size == handset-portrait ){
-      @media( max-width : $handset-portrait ) {
-        @content;
-      }
-    }
-}
