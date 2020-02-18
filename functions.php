@@ -156,7 +156,9 @@ function get_scripts_min() {
 }
 
 function is_post_archive() {
-	return is_post_type_archive( 'post' ) || is_tag() || is_category() || is_date() || is_archive();
+	global $wp_query;
+
+	return $wp_query->is_posts_page || is_post_type_archive( 'post' ) || is_tag() || is_category() || is_date() || is_archive();
 }
 
 /**
