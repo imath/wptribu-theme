@@ -254,6 +254,15 @@ function o2_filter_widget_filters( $filters = array() ) {
 add_filter( 'o2_filter_widget_filters', __NAMESPACE__ . '\o2_filter_widget_filters', 10, 1 );
 
 /**
+ * Make sure the expand editor control is available in category template.
+ *
+ * @since 1.0.0
+ */
+function o2_bring_expand_editor_control() {
+	echo '<div id="o2-expand-editor"><span class="genericon genericon-edit"></span></div>';
+}
+
+/**
  * Allow the Front end editor to be loaded on category pages.
  *
  * @since 1.0.0
@@ -264,6 +273,8 @@ add_filter( 'o2_filter_widget_filters', __NAMESPACE__ . '\o2_filter_widget_filte
 function o2_filter_options( $options = array() ) {
 	if ( is_category() ) {
 		$options['options']['showFrontSidePostBox'] = is_user_logged_in() && current_user_can( 'publish_posts' );
+		add_action( 'wp_footer', __NAMESPACE__ . '\o2_bring_expand_editor_control' );
+
 	} elseif ( is_search() || isset( $_GET['mentions'] ) ) {
 		$options['options']['showFrontSidePostBox'] = false;
 	}
