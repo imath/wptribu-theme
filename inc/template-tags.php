@@ -151,3 +151,13 @@ if ( ! function_exists( __NAMESPACE__ . '\the_site_description' ) ) :
 		echo esc_html( get_site_description() );
 	}
 endif;
+
+if ( ! function_exists( __NAMESPACE__ . '\the_handbook_navigation' ) ) {
+	function the_handbook_navigation() {
+		if ( ! class_exists( '\WPorg_Handbook_Navigation' ) ) {
+			return;
+		}
+
+		\WPorg_Handbook_Navigation::show_nav_links( 'Contributor Events Table of Contents' );
+	}
+}

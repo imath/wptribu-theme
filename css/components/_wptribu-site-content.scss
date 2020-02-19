@@ -1,7 +1,8 @@
 .site-content {
 
 	.blog &,
-	&.blog {
+	&.blog,
+	.single-handbook & {
 		margin: auto;
 		max-width: none;
 		padding: 0;

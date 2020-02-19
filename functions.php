@@ -26,8 +26,9 @@ function setup_theme() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'header'  => esc_html__( 'Header', 'wptribu-theme' ),
-		'primary' => esc_html__( 'Primary', 'wptribu-theme' ),
+		'header'    => esc_html__( 'Header', 'wptribu-theme' ),
+		'primary'   => esc_html__( 'Blog top menu', 'wptribu-theme' ),
+		'secondary' => esc_html__( 'Handbook top menu', 'wptribu-theme' ),
 	) );
 
 	/*
@@ -222,6 +223,20 @@ function scripts() {
 			true
 		);
 	}
+
+	if ( is_single() && 'handbook' === get_queried_object()->post_type ) {
+		if ( ! $suffix ) {
+			$version = filemtime( get_theme_file_path( "/js/chapters$suffix.js" ) );
+		}
+
+		wp_enqueue_script(
+			'wptribu-chapters',
+			get_template_directory_uri() . "/js/chapters$suffix.js",
+			array( 'jquery' ),
+			$version,
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\scripts', 10 );
 
@@ -294,6 +309,32 @@ function page_menu() {
 	echo $page_menu;
 }
 
+//current_page_parent
+function nav_menu_objects_for_handbook( $menu_items = array() ) {
+	if ( is_single() && 'handbook' === get_queried_object()->post_type ) {
+		foreach ( $menu_items as $key => $item ) {
+			if ( 'handbook' === $item->object ) {
+				continue;
+			}
+
+			$menu_items[ $key ]->classes = array_diff(
+				$menu_items[ $key ]->classes,
+				array(
+					'current-menu-item',
+					'current_page_item',
+					'current_page_parent',
+					'current_page_ancestor',
+					'current-menu-ancestor',
+					'current-menu-parent',
+				)
+			);
+		}
+	}
+
+	return $menu_items;
+}
+add_filter( 'wp_nav_menu_objects', __NAMESPACE__ . '\nav_menu_objects_for_handbook' );
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
@@ -339,6 +380,22 @@ function entete_menu_items( $items = '' ) {
 	return $items;
 }
 add_filter( 'wp_nav_menu_entete_items', __NAMESPACE__ . '\entete_menu_items', 10, 1 );
+
+/**
+ * Wrapper for wporg_get_current_handbook() to avoid fatal errors
+ * if the handbook plugin is not active.
+ *
+ * @since 1.0.0
+ *
+ * @return string the current handbook name.
+ */
+function get_current_handbook() {
+	if ( ! function_exists( 'wporg_get_current_handbook' ) ) {
+		return '';
+	}
+
+	return wporg_get_current_handbook();
+}
 
 /**
  * Custom template tags.
