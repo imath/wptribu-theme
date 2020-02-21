@@ -481,6 +481,12 @@ nav.o2-post-footer-actions {
 					-moz-osx-font-smoothing: antialiased;
 				}
 			}
+
+			&.genericon-rss {
+				&:before {
+					margin-top: -1px;
+				}
+			}
 		}
 	}
 }
