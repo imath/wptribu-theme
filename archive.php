@@ -30,6 +30,7 @@ if ( is_post_archive() ) {
 						printf(
 							'<h1 class="page-title">%s</h1>',
 							sprintf(
+								/* Translators: %s is the author link */
 								esc_html__( 'Author Archives: %s', 'wptribu-theme' ),
 								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>'
 							)
