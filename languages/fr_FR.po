@@ -1,0 +1,319 @@
+# Copyright (C) 2020 imath
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: wpTribu 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/imath/wptribu-theme/issues\n"
+"Last-Translator: \n"
+"Language-Team: wpTribu.org <hello@wptribu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-21T06:36:32+00:00\n"
+"PO-Revision-Date: 2020-02-21 10:26+0100\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Domain: wptribu-theme\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. Theme Name of the theme
+msgid "wpTribu"
+msgstr "wpTribu"
+
+#. Theme URI of the theme
+msgid "https://wptribu.org"
+msgstr "https://wptribu.org"
+
+#. Description of the theme
+msgid "Theme for wptribu.org."
+msgstr "Thème du site wpTribu.org."
+
+#. Author of the theme
+msgid "imath"
+msgstr "imath"
+
+#. Author URI of the theme
+msgid "https://imathi.eu"
+msgstr "https://imathi.eu"
+
+#: 404.php:18
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "Oops, cette page est inatteignable!"
+
+#. translators: Home URL.
+#: 404.php:23
+msgid ""
+"Try searching from the field above, or go to the <a href=\"%s\">home page</"
+"a>."
+msgstr ""
+"Essayez de rechercher sur tout le site à l’aide du champ ci-dessus, ou "
+"retournez sur <a href=\"%s\">la page d’accueil du site</a>."
+
+#. Translators: %s is the author link
+#: archive.php:34 archive.php:56
+msgid "Author Archives: %s"
+msgstr "Publications de : %s"
+
+#: archive.php:63
+msgid "This author has no posts yet."
+msgstr "Cet auteur n’a pas encore publié de contenu."
+
+#: archive.php:73
+msgid "This category has no posts yet. Be the first to add one!"
+msgstr ""
+"Cette catégorie ne contient pas de publication pour le moment. Soyez le·la "
+"premier·ère à en ajouter une !"
+
+#. translators: 1: title.
+#: comments.php:37
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr "Un commentaire sur « %1$s »"
+
+#. translators: 1: comment count number, 2: title.
+#: comments.php:43
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s commentaire sur « %2$s »"
+msgstr[1] "%1$s commentaires sur « %2$s »"
+
+#: comments.php:68
+msgid "Comments are closed."
+msgstr "Les commentaires sont fermés."
+
+#. translators: Copyright date format, see https://secure.php.net/date
+#: footer.php:25
+msgctxt "copyright date format"
+msgid "Y"
+msgstr "Y"
+
+#: footer.php:32
+msgid "https://wordpress.org/"
+msgstr "https://fr.wordpress.org/"
+
+#: footer.php:33
+msgid "Powered by WordPress"
+msgstr "Propulsé par WordPress"
+
+#. translators: %s: HTML character for up arrow
+#: footer.php:44
+msgid "To the top %s"
+msgstr "En haut %s"
+
+#: footer.php:51
+msgid "Code is Poetry."
+msgstr "Le code c’est de la poésie"
+
+#: functions.php:29
+msgid "Header"
+msgstr "Entête"
+
+#: functions.php:30
+msgid "Blog top menu"
+msgstr "Menu de la bannière du blog"
+
+#: functions.php:31
+msgid "Handbook top menu"
+msgstr "Menu de la bannière du manuel"
+
+#: functions.php:68
+msgid "Sidebar"
+msgstr "Barre latérale"
+
+#: functions.php:77
+msgid "o2 Sidebar"
+msgstr "Barre latérale d’o2"
+
+#: functions.php:376
+msgid "Contribute"
+msgstr "Contribuer"
+
+#: header-blog.php:15
+msgid "Menu"
+msgstr "Menu"
+
+#: header-blog.php:17 inc/o2.php:220
+msgid "Latest news"
+msgstr "Dernières nouvelles"
+
+#: header-handbook.php:14
+msgid "Handbook"
+msgstr "Documentation"
+
+#: header-page.php:23
+msgid "Primary Menu"
+msgstr "Menu principal"
+
+#: header.php:30
+msgid "Skip to content"
+msgstr "Accéder au contenu"
+
+#: header.php:33
+msgid "Toggle Menu"
+msgstr "Afficher/masquer le menu"
+
+#. translators: Mention notification email subject. %s: Site title.
+#: inc/mentions.php:187
+msgid "[%s] New post mention"
+msgstr "[%s] nouvelle mention dans un article"
+
+#. translators: %s: Post title.
+#: inc/mentions.php:190
+msgid "You have been mentioned into the post: \"%s\""
+msgstr "Vous avez reçu une mention dans cette publication : \"%s\""
+
+#. translators: %s: Post URL.
+#: inc/mentions.php:193
+msgid "Go to the post: %s"
+msgstr "Afficher la publication : %s"
+
+#. translators: %s: Site title.
+#: inc/mentions.php:207
+msgid "[%s] New comment mention"
+msgstr "[%s] nouvelle mention dans un commentaire"
+
+#. translators: %s: Post title.
+#: inc/mentions.php:210
+msgid "You have been mentioned into a comment of the post: \"%s\""
+msgstr ""
+"Vous avez reçu une mention dans un commentaire portant sur cette "
+"publication : \"%s\""
+
+#. translators: %s: Comment URL.
+#: inc/mentions.php:213
+msgid "Go to the comment: %s"
+msgstr "Afficher le commentaire : %s"
+
+#. translators: 1: post date 2: post author
+#: inc/template-tags.php:38
+msgid "Posted on %1$s by %2$s."
+msgstr "Posté le %1$s par %2$s."
+
+#: inc/template-tags.php:49
+msgctxt "Used before post format."
+msgid "Format"
+msgstr "Format"
+
+#. translators: Post title.
+#: inc/template-tags.php:63
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "Commenter<span class=\"screen-reader-text\"> sur %s</span>"
+
+#: inc/template-tags.php:103
+msgctxt "Used before publish date."
+msgid "Posted on"
+msgstr "Posté le"
+
+#: inc/template-tags.php:117 inc/template-tags.php:126
+msgctxt "Used between list items, there is a space after the comma."
+msgid ", "
+msgstr ", "
+
+#: inc/template-tags.php:121
+msgctxt "Used before category names."
+msgid "Categories"
+msgstr "Catégories"
+
+#: inc/template-tags.php:130
+msgctxt "Used before tag names."
+msgid "Tags"
+msgstr "Étiquettes"
+
+#: inc/template-tags.php:142
+msgid "The best way to learn WordPress is to contribute to it."
+msgstr "La meilleure manière de maîtriser WordPress, c’est d’y contribuer."
+
+#. translators: Search query.
+#: search.php:23
+msgid "Search Results for: %s"
+msgstr "Résultats de recherche pour : %s"
+
+#. translators: %s: Name of current post
+#: search.php:55 template-parts/content-handbook-single.php:42
+#: template-parts/content.php:52
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr "Modifier<span class=\"screen-reader-text\">\"%s\"</span>"
+
+#: single.php:48
+msgid "Next"
+msgstr "Suivante"
+
+#: single.php:49
+msgid "Next post:"
+msgstr "Publication suivante : "
+
+#: single.php:51
+msgid "Previous"
+msgstr "Précédente"
+
+#: single.php:52
+msgid "Previous post:"
+msgstr "Publication précédente"
+
+#. translators: %s: Name of current post
+#: template-parts/content-handbook-single.php:22 template-parts/content.php:32
+msgid ""
+"Continue reading<span class=\"screen-reader-text\"> \"%s\"</span> &rarr;"
+msgstr ""
+"Poursuivre la lecture<span class=\"screen-reader-text\"> de \"%s\"</span> "
+"&arr;"
+
+#: template-parts/content-handbook-single.php:27
+#: template-parts/content-page.php:25 template-parts/content.php:37
+#: templates/page-about-hero-landing.php:36
+msgid "Pages:"
+msgstr "Pages :"
+
+#: template-parts/content-handbook-single.php:31 template-parts/content.php:41
+msgid "Page"
+msgstr "Page"
+
+#: template-parts/content-none.php:13
+msgid "Nothing Found"
+msgstr "Introuvable"
+
+#. translators: Link to post editor.
+#: template-parts/content-none.php:23
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+"Prêt·e à partager votre première publication ? <a href=\"%1$s\">C’est par "
+"ici</a>."
+
+#: template-parts/content-none.php:31
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Désolé, mais vos termes de recherche sont introuvables. Merci d’essayer à "
+"nouveau en utilisant d’autres termes."
+
+#: template-parts/content-none.php:36
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Il semble que nous ne soyons pas en mesure de trouver ce que vous "
+"recherchez. Une recherche peut aider."
+
+#. translators: %s: Name of current post
+#: template-parts/content-page.php:36 templates/page-about-hero-landing.php:47
+msgid "Edit %s"
+msgstr "Modifier %s"
+
+#: template-parts/content.php:14
+msgid "Featured"
+msgstr "Mis en une"
+
+#. Template Name of the theme
+msgid "Landing"
+msgstr "Atterrissage"
+
+#: templates/page-about-hero-landing.php:27
+msgid ""
+"The freedom to meet. The freedom to connect. The freedom to contribute to "
+"WordPress."
+msgstr ""
+"Libres de se rencontrer. Libres de faire connaissance. Libres de contribuer "
+"à WordPress."

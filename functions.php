@@ -15,6 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function setup_theme() {
+	// Load translations.
+	load_theme_textdomain(
+		'wptribu-theme',
+		get_theme_file_path( '/languages/' )
+	);
+
 	// Add Title tag support.
 	add_theme_support( 'title-tag' );
 
