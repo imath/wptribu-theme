@@ -73,11 +73,11 @@ body.single-handbook {
 				top: 49%;
 				width: 100px;
 
-				@include breakpoint( 640px ) {
+				@include breakpoint( 0, 640px ) {
 					width: 50px;
 				}
 
-				@include breakpoint( 480px) {
+				@include breakpoint( 0, 480px) {
 					width: 0;
 				}
 			}
@@ -86,7 +86,7 @@ body.single-handbook {
 				left: 0;
 				margin-left: -110px;
 
-				@include breakpoint( 640px ) {
+				@include breakpoint( 0, 640px ) {
 					margin-left: -55px;
 				}
 			}
@@ -95,7 +95,7 @@ body.single-handbook {
 				right: 0;
 				margin-right: -110px;
 
-				@include breakpoint( 640px ) {
+				@include breakpoint( 0, 640px ) {
 					margin-right: -55px;
 				}
 			}
@@ -113,7 +113,7 @@ body.single-handbook {
 			padding-top: 5rem;
 		}
 
-		@include breakpoint( 876px ) {
+		@include breakpoint( 0, 876px ) {
 			width: 100%;
 			margin-left: 0;
 		}
@@ -121,14 +121,14 @@ body.single-handbook {
 		~ .handbook-breadcrumbs {
 			top: 5rem;
 
-			@include breakpoint( 876px ) {
+			@include breakpoint( 0, 876px ) {
 				top: 5rem;
 			}
 
 			~ #primary {
 				padding-top: 10rem;
 
-				@include breakpoint( 876px ) {
+				@include breakpoint( 0, 876px ) {
 					padding-top: 10rem;
 				}
 			}
@@ -139,7 +139,7 @@ body.single-handbook {
 		margin-top: 1rem;
 		font-size: 0.75rem;
 
-		@include breakpoint( 875px ) {
+		@include breakpoint( 0, 875px ) {
 			top: 3rem;
 			left: 22px;
 		}
@@ -147,7 +147,7 @@ body.single-handbook {
 		~ #primary {
 			padding-top: 8rem;
 
-			@include breakpoint( 875px ) {
+			@include breakpoint( 0, 875px ) {
 				padding-top: 7rem;
 			}
 		}
@@ -169,7 +169,7 @@ body.single-handbook {
 			margin: -15px -30px 15px 15px;
 		}
 
-		@include breakpoint( 480px ) {
+		@include breakpoint( 0, 480px ) {
 			display: none;
 		}
 
