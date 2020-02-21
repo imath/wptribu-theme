@@ -14,7 +14,8 @@ if ( ! is_active_sidebar( get_current_handbook() ) )
     <aside id="secondary" class="widget-area col-3">
 		<a href="#" id="secondary-toggle"></a>
 		<div id="secondary-content">
-			<?php do_action( 'before_sidebar' ); ?>
+			<?php do_action( 'before_handbook_sidebar' ); ?>
+
 			<?php dynamic_sidebar( get_current_handbook() ); ?>
 		</div>
 	</aside><!-- #secondary -->

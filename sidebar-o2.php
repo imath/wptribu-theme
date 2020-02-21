@@ -14,7 +14,7 @@ namespace WPTribu\Theme;
 	<div id="primary-modal"></div>
 
 	<div id="secondary-content">
-		<?php do_action( 'before_sidebar' ); ?>
+		<?php do_action( 'before_o2_sidebar' ); ?>
 
 		<?php dynamic_sidebar( 'sidebar-o2' ); ?>
 	</div>
