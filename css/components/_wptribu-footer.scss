@@ -72,7 +72,7 @@
 		text-transform: uppercase;
 
 		&.cip-image {
-			background: url(//s.w.org/style/images/codeispoetry.png?1) center center no-repeat;
+			background: url(../images/codeispoetry.png) center center no-repeat;
 			background-size: 190px 15px;
 			height: 15px;
 			text-indent: -9999px;
@@ -81,7 +81,7 @@
 			@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
 			only screen and (min-resolution: 1.5dppx),
 			only screen and (min-resolution: 144dpi) {
-				background-image: url(//s.w.org/style/images/codeispoetry-2x.png?1);
+				background-image: url(../images/codeispoetry-2x.png);
 			}
 		}
 	}

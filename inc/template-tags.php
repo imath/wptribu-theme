@@ -161,3 +161,13 @@ if ( ! function_exists( __NAMESPACE__ . '\the_handbook_navigation' ) ) {
 		\WPorg_Handbook_Navigation::show_nav_links( 'Contributor Events Table of Contents' );
 	}
 }
+
+if ( ! function_exists( __NAMESPACE__ . '\the_svg_src' ) ) :
+	function the_svg_src( $name = 'wptribu' ) {
+		if ( ! in_array( $name, array( 'wptribu', 'groups', 'tickets' ), true ) ) {
+			return '';
+		}
+
+		echo esc_url( get_template_directory_uri() . '/images/' . $name . '.svg' );
+	}
+endif;

@@ -29,9 +29,32 @@ the_post();
             </header><!-- .entry-header -->
 
             <div class="entry-content">
-                <?php
-                the_content();
+				<?php the_content(); ?>
 
+				<div class="home-landing">
+
+					<div class="inner-wrap section">
+
+						<div class="box box-wordcamp">
+							<h3 class="widget-title"><img class="icon icon-wordcamp" src="<?php the_svg_src( 'tickets' ); ?>" width="150" height="150"><?php esc_html_e( 'WordCamp', 'wptribu-theme' ); ?></h3>
+							<p class="widget-description"><?php esc_html_e( 'Before, during or after.', 'wptribu-theme' ); ?></p>
+						</div>
+
+						<div class="box box-meetup">
+							<h3 class="widget-title"><img class="icon icon-wordcamp" src="<?php the_svg_src( 'groups' ); ?>" width="150" height="150"><?php esc_html_e( 'Meetup', 'wptribu-theme' ); ?></h3>
+							<p class="widget-description"><?php esc_html_e( 'During a local group meeting.', 'wptribu-theme' ); ?></p>
+						</div>
+
+						<div class="box box-contributor-meeting">
+							<h3 class="widget-title"><img class="icon icon-wordcamp" src="<?php the_svg_src( 'wptribu' ); ?>" width="150" height="150"><?php esc_html_e( 'asap!', 'wptribu-theme' ); ?></h3>
+							<p class="widget-description"><?php esc_html_e( 'Morning, afternoon, day, evening.', 'wptribu-theme' ); ?></p>
+						</div>
+
+					</div>
+
+				</div>
+
+				<?php
                 wp_link_pages( array(
                     'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wptribu-theme' ),
                     'after'  => '</div>',
