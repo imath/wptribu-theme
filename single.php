@@ -43,28 +43,33 @@ if ( 'post' === get_post_type() ) {
 				endif;
 
 				// Previous/next post navigation.
-				the_post_navigation( [
-					// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
-					'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'wptribu-theme' ) . '</span> ' .
-								'<span class="screen-reader-text">' . __( 'Next post:', 'wptribu-theme' ) . '</span> ' .
-								'<span class="post-title">%title</span>',
-					'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'wptribu-theme' ) . '</span> ' .
-								'<span class="screen-reader-text">' . __( 'Previous post:', 'wptribu-theme' ) . '</span> ' .
-								'<span class="post-title">%title</span>',
-					// phpcs:enable WordPress.WhiteSpace.PrecisionAlignment.Found
-				] );
+				the_post_navigation(
+					array(
+						// phpcs:disable WordPress.WhiteSpace.PrecisionAlignment.Found
+						'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'wptribu-theme' ) . '</span> ' .
+									'<span class="screen-reader-text">' . __( 'Next post:', 'wptribu-theme' ) . '</span> ' .
+									'<span class="post-title">%title</span>',
+						'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'wptribu-theme' ) . '</span> ' .
+									'<span class="screen-reader-text">' . __( 'Previous post:', 'wptribu-theme' ) . '</span> ' .
+									'<span class="post-title">%title</span>',
+						// phpcs:enable WordPress.WhiteSpace.PrecisionAlignment.Found
+					)
+				);
 				endwhile; // End of the loop.
 			?>
 
 <?php if ( 'post' !== get_post_type() ) : ?>
 		</main><!-- #main -->
-<?php get_sidebar();
 
-else : ?>
+	<?php get_sidebar(); ?>
+
+<?php else : ?>
 			</div><!-- #content -->
 		</main><!-- #main -->
 		<?php get_sidebar( 'o2' ); ?>
 	</div><!-- .blog-wrapper -->
-<?php endif;
 
+<?php endif; ?>
+
+<?php
 get_footer();

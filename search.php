@@ -31,7 +31,7 @@ get_header(); ?>
 			// Start the loop.
 			while ( have_posts() ) :
 				the_post();
-			?>
+				?>
 
 			<div class="search-wrapper">
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -63,7 +63,7 @@ get_header(); ?>
 				</article><!-- #post-## -->
 			</div><!-- .search-wrapper -->
 
-			<?php
+				<?php
 				// End the loop.
 				endwhile;
 

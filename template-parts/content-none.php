@@ -6,6 +6,7 @@
  */
 
 namespace WPTribu\Theme;
+
 ?>
 
 <section class="no-results not-found">
@@ -19,9 +20,13 @@ namespace WPTribu\Theme;
 			<p>
 				<?php
 				printf(
-					/* translators: Link to post editor. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'wptribu-theme' ), // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
-					esc_url( admin_url( 'post-new.php' ) )
+					/* Translators: Link to post editor. */
+					esc_html__( 'Ready to publish your first post? %s.', 'wptribu-theme' ),
+					sprintf(
+						'<a href="%1$s">%2$s</a>',
+						esc_url( admin_url( 'post-new.php' ) ),
+						esc_html__( 'Get started here', 'wptribu-theme' )
+					)
 				);
 				?>
 			</p>

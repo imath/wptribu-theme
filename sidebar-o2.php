@@ -8,6 +8,7 @@
  */
 
 namespace WPTribu\Theme;
+
 ?>
 
 <aside id="secondary" class="widget-area col-3">

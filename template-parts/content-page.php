@@ -8,6 +8,7 @@
  */
 
 namespace WPTribu\Theme;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -21,10 +22,12 @@ namespace WPTribu\Theme;
 		<?php
 		the_content();
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wptribu-theme' ),
-			'after'  => '</div>',
-		) );
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wptribu-theme' ),
+				'after'  => '</div>',
+			)
+		);
 		?>
 	</div><!-- .entry-content -->
 

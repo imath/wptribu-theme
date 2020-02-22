@@ -23,7 +23,7 @@ function dequeue_assets() {
 
 	if ( isset( $scripts->queue ) ) {
 		foreach ( $scripts->queue as $js_handle ) {
-			if ( 0 === strpos( $js_handle, 'o2') || in_array( $js_handle, array( 'jquery-actionstate', 'jquery.autoresize' ), true ) ) {
+			if ( 0 === strpos( $js_handle, 'o2' ) || in_array( $js_handle, array( 'jquery-actionstate', 'jquery.autoresize' ), true ) ) {
 				wp_dequeue_script( $js_handle );
 			}
 		}
@@ -31,7 +31,7 @@ function dequeue_assets() {
 
 	if ( isset( $styles->queue ) ) {
 		foreach ( $styles->queue as $css_handle ) {
-			if ( 0 === strpos( $css_handle, 'o2') ) {
+			if ( 0 === strpos( $css_handle, 'o2' ) ) {
 				wp_dequeue_script( $css_handle );
 			}
 		}
@@ -141,15 +141,19 @@ add_action( 'template_redirect', __NAMESPACE__ . '\restrict_o2' );
  *
  * @since 1.0.0
  *
- * @param string   $filter  The name of the filter.
- * @param string   $current The current value of the filter.
- * @return boolean          True if the filter is active. False otherwise.
+ * @param string $filter  The name of the filter.
+ * @param string $current The current value of the filter.
+ * @return boolean        True if the filter is active. False otherwise.
  */
 function o2_selected_filter( $filter = '', $current = '' ) {
 	$archive     = get_post_type_archive_link( 'post' );
-	$current_uri = wp_parse_url( $_SERVER['REQUEST_URI'] );
+	$current_uri = '';
 	$query_args  = array();
 	$return      = false;
+
+	if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+		$current_uri = wp_parse_url( $_SERVER['REQUEST_URI'] ); // phpcs:ignore
+	}
 
 	if ( false === strpos( $archive, $current_uri['path'] ) ) {
 		return $return;
@@ -275,7 +279,7 @@ function o2_filter_options( $options = array() ) {
 		$options['options']['showFrontSidePostBox'] = is_user_logged_in() && current_user_can( 'publish_posts' );
 		add_action( 'wp_footer', __NAMESPACE__ . '\o2_bring_expand_editor_control' );
 
-	} elseif ( is_search() || isset( $_GET['mentions'] ) ) {
+	} elseif ( is_search() || isset( $_GET['mentions'] ) ) { // phpcs:ignore
 		$options['options']['showFrontSidePostBox'] = false;
 	}
 
@@ -320,6 +324,14 @@ function o2_create_post( $post ) {
 }
 add_filter( 'o2_create_post', __NAMESPACE__ . '\o2_create_post', 10, 1 );
 
+/**
+ * Make sure empty categories are displayed to allow posting from the front end.
+ *
+ * @since 1.0.0
+ *
+ * @param array $args The category widget arguments.
+ * @return array      The category widget arguments.
+ */
 function widget_categories_args( $args = array() ) {
 	return array_merge(
 		$args,
@@ -330,6 +342,11 @@ function widget_categories_args( $args = array() ) {
 }
 add_filter( 'widget_categories_args', __NAMESPACE__ . '\widget_categories_args', 10, 1 );
 
+/**
+ * Enqueue specific script needed by o2.
+ *
+ * @since 1.0.0
+ */
 function o2_scripts() {
 	$suffix = get_scripts_min();
 

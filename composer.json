@@ -1,0 +1,13 @@
+{
+	"name": "imath/wptribu-theme",
+	"description": "The wpTribu.org Theme.",
+	"type": "wordpress-theme",
+	"require": {
+	  "squizlabs/php_codesniffer" : "^3.3.1"
+	},
+	"require-dev": {
+	  "dealerdirect/phpcodesniffer-composer-installer": "*",
+	  "phpcompatibility/phpcompatibility-wp" : "*",
+	  "wp-coding-standards/wpcs": "*"
+	}
+  }

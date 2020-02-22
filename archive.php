@@ -23,16 +23,17 @@ if ( is_post_archive() ) {
 				<?php
 				if ( is_author() ) {
 					if ( have_posts() ) {
-						/* Queue the first post, that way we know
-						* what author we're dealing with (if that is the case).
-						*/
+						/**
+						 * Queue the first post, that way we know what author
+						 * we're dealing with (if that is the case).
+						 */
 						the_post();
 						printf(
 							'<h1 class="page-title">%s</h1>',
 							sprintf(
 								/* Translators: %s is the author link */
 								esc_html__( 'Author Archives: %s', 'wptribu-theme' ),
-								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( "ID" ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>'
+								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>'
 							)
 						);
 
@@ -43,16 +44,18 @@ if ( is_post_archive() ) {
 							);
 						}
 
-						/* Since we called the_post() above, we need to
-						* rewind the loop back to the beginning that way
-						* we can run the loop properly, in full.
-						*/
+						/**
+						 * Since we called the_post() above, we need to rewind the loop
+						 * back to the beginning that way we can run the loop properly,
+						 * in full.
+						 */
 						rewind_posts();
 					} elseif ( is_a( get_queried_object(), 'WP_User' ) ) {
 						$user = get_queried_object();
 						printf(
 							'<h1 class="page-title">%s</h1>',
 							sprintf(
+								/* Translators: %s is the author link */
 								esc_html__( 'Author Archives: %s', 'wptribu-theme' ),
 								'<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( $user->ID ) ) . '" title="' . esc_attr( $user->display_name ) . '" rel="me">' . esc_html( $user->display_name ) . '</a></span>'
 							)
@@ -102,8 +105,6 @@ if ( is_post_archive() ) {
 			get_template_part( 'template-parts/content' );
 		endwhile;
 
-		the_posts_pagination();
-
 	else :
 		get_template_part( 'template-parts/content', 'none' );
 
@@ -111,17 +112,32 @@ if ( is_post_archive() ) {
 	?>
 
 <?php if ( ! is_post_archive() ) : ?>
+
+		<?php if ( have_posts() ) : ?>
+
+			<?php the_posts_pagination(); ?>
+
+		<?php endif; ?>
+
 	</main><!-- #main -->
 
-<?php
-	get_sidebar();
+	<?php get_sidebar(); ?>
 
-else : ?>
+<?php else : ?>
+
 			</div><!-- #content -->
+
+			<?php if ( have_posts() ) : ?>
+
+				<?php the_posts_pagination(); ?>
+
+			<?php endif; ?>
+
 		</main><!-- #main -->
 		<?php get_sidebar( 'o2' ); ?>
 	</div><!-- .blog-wrapper -->
 
-<?php endif;
+	<?php
+	endif;
 
 get_footer();

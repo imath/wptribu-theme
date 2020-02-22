@@ -175,7 +175,7 @@ function save_mentions( $object = null ) {
 		// Disable mentions filter.
 		remove_filter( 'the_content', __NAMESPACE__ . '\set_mentions', 100 );
 
-		$content  = apply_filters( 'the_content', $object->post_content );
+		$content = apply_filters( 'the_content', $object->post_content );
 
 		// Enable mentions filter.
 		add_filter( 'the_content', __NAMESPACE__ . '\set_mentions', 100 );
@@ -195,7 +195,7 @@ function save_mentions( $object = null ) {
 		// Disable mentions filter.
 		remove_filter( 'comment_text', __NAMESPACE__ . '\set_mentions', 100 );
 
-		$content  = apply_filters( 'comment_text', $object->comment_content );
+		$content = apply_filters( 'comment_text', $object->comment_content );
 
 		// Enable mentions filter.
 		add_filter( 'comment_text', __NAMESPACE__ . '\set_mentions', 100 );
@@ -288,7 +288,7 @@ function insert_comment_mentions( $id = 0, $comment = null ) {
 		return;
 	}
 
-	$post = get_post( $comment->comment_post_ID );
+	$post                 = get_post( $comment->comment_post_ID );
 	$comment->post_parent = $post;
 
 	save_mentions( $comment );
@@ -340,8 +340,8 @@ function get_mentions_args( $url = '' ) {
 
 		if ( $user ) {
 			$args = array(
-				'meta_key'   => '_wptribu_mentions',
-				'meta_value' => (int) $user->ID,
+				'meta_key'   => '_wptribu_mentions', // phpcs:ignore
+				'meta_value' => (int) $user->ID, // phpcs:ignore
 			);
 		}
 	}
@@ -362,7 +362,12 @@ function parse_query( $posts_query ) {
 		return;
 	}
 
-	$mention_args = get_mentions_args( $_SERVER['REQUEST_URI'] );
+	$requested_uri = '';
+	if ( isset( $_SERVER['REQUEST_URI'] ) ) {
+		$requested_uri = $_SERVER['REQUEST_URI']; // phpcs:ignore
+	}
+
+	$mention_args = get_mentions_args( $requested_uri );
 	if ( $mention_args ) {
 		foreach ( $mention_args as $key => $value ) {
 			$posts_query->set( $key, $value );

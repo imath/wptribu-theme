@@ -14,6 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Sets Theme supports.
+ *
+ * @since 1.0.0
+ */
 function setup_theme() {
 	// Load translations.
 	load_theme_textdomain(
@@ -31,13 +36,15 @@ function setup_theme() {
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'header'    => esc_html__( 'Header', 'wptribu-theme' ),
-		'primary'   => esc_html__( 'Blog top menu', 'wptribu-theme' ),
-		'secondary' => esc_html__( 'Handbook top menu', 'wptribu-theme' ),
-	) );
+	register_nav_menus(
+		array(
+			'header'    => esc_html__( 'Header', 'wptribu-theme' ),
+			'primary'   => esc_html__( 'Blog top menu', 'wptribu-theme' ),
+			'secondary' => esc_html__( 'Handbook top menu', 'wptribu-theme' ),
+		)
+	);
 
-	/*
+	/**
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
 	 */
@@ -66,45 +73,48 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
 /**
  * Register widgets.
  *
- * @access public
- * @return void
+ * @since 1.0.0
  */
 function widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'wptribu-theme' ),
-		'id'            => 'sidebar-1',
-		'before_widget' => '<div id="%1$s" class="%2$s">',
-		'after_widget'  => '</div></div>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4><div class="widget-content">',
-	) );
+	register_sidebar(
+		array(
+			'name'          => __( 'Sidebar', 'wptribu-theme' ),
+			'id'            => 'sidebar-1',
+			'before_widget' => '<div id="%1$s" class="%2$s">',
+			'after_widget'  => '</div></div>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4><div class="widget-content">',
+		)
+	);
 
-	register_sidebar( array(
-		'name'          => __( 'o2 Sidebar', 'wptribu-theme' ),
-		'id'            => 'sidebar-o2',
-		'before_widget' => '<div id="%1$s" class="box gray widget %2$s">',
-		'after_widget'  => '</div></div>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4><div class="widget-content">',
-	) );
+	register_sidebar(
+		array(
+			'name'          => __( 'o2 Sidebar', 'wptribu-theme' ),
+			'id'            => 'sidebar-o2',
+			'before_widget' => '<div id="%1$s" class="box gray widget %2$s">',
+			'after_widget'  => '</div></div>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4><div class="widget-content">',
+		)
+	);
 }
 add_action( 'widgets_init', __NAMESPACE__ . '\widgets_init' );
 
 /**
- * Enqueue styles.
+ * Enqueues styles.
  *
  * @since 1.0.0
  */
 function styles() {
-    wp_enqueue_style(
-        'wptribu-theme',
-        get_theme_file_uri( '/css/style.css' ),
-        array(
-            'dashicons',
-            'open-sans'
-        ),
-        '1.0.0'
-    );
+	wp_enqueue_style(
+		'wptribu-theme',
+		get_theme_file_uri( '/css/style.css' ),
+		array(
+			'dashicons',
+			'open-sans',
+		),
+		'1.0.0'
+	);
 	wp_style_add_data( 'wptribu-theme', 'rtl', 'replace' );
 	wp_add_inline_style(
 		'wptribu-theme',
@@ -124,7 +134,9 @@ function styles() {
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\styles', 9 );
 
 /**
- * Set the separator for the document title.
+ * Sets the separator for the document title.
+ *
+ * @since 1.0.0
  *
  * @return string Document title separator.
  */
@@ -134,34 +146,51 @@ function document_title_separator() {
 add_filter( 'document_title_separator', __NAMESPACE__ . '\document_title_separator' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
+ * Sets the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
  *
- * @global int $content_width
+ * @since 1.0.0
+ *
+ * @global integer $content_width
  */
 function content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'wporg_content_width', 612 );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\content_width', 0 );
 
+/**
+ * Gets the minimized suffix.
+ *
+ * @since 1.0.0
+ *
+ * @return string The minimized suffix.
+ */
 function get_scripts_min() {
 	$suffix       = '.min';
-    $script_debug = false;
+	$script_debug = false;
 
-    if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-        $suffix       = '';
-        $script_debug = true;
-    }
+	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+		$suffix       = '';
+		$script_debug = true;
+	}
 
 	// Concatenates core scripts when possible.
 	if ( ! $script_debug ) {
-		$GLOBALS['concatenate_scripts'] = true;
+		$GLOBALS['concatenate_scripts'] = true; // phpcs:ignore
 	}
 
 	return $suffix;
 }
 
+/**
+ * Checks whether the displayed page is displaying posts.
+ *
+ * @since 1.0.0
+ *
+ * @return boolean True if the displayed page is displaying posts.
+ *                 False otherwise.
+ */
 function is_post_archive() {
 	global $wp_query;
 
@@ -170,6 +199,8 @@ function is_post_archive() {
 
 /**
  * Enqueue scripts and styles.
+ *
+ * @since 1.0.0
  */
 function scripts() {
 	$suffix  = get_scripts_min();
@@ -254,15 +285,15 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\scripts', 10 );
  * @since 1.0.0
  *
  * @param array $classes Body classes.
- * @return array
+ * @return array The Body classes.
  */
 function body_classes( $classes = array() ) {
 	if ( is_page() ) {
-        $page = get_queried_object();
+		$page = get_queried_object();
 
-        if ( preg_match( '/page-about-hero/', get_page_template_slug( $page ) ) ) {
-            $classes[] = 'page-about';
-        }
+		if ( preg_match( '/page-about-hero/', get_page_template_slug( $page ) ) ) {
+			$classes[] = 'page-about';
+		}
 	}
 
 	if ( is_post_archive() ) {
@@ -273,6 +304,14 @@ function body_classes( $classes = array() ) {
 }
 add_filter( 'body_class', __NAMESPACE__ . '\body_classes' );
 
+/**
+ * Checks whether the current displayed page has a parent page.
+ *
+ * @since 1.0.0
+ *
+ * @return boolean True if the current displayed page has a parent page.
+ *                 False otherwise.
+ */
 function page_has_parent() {
 	if ( ! is_page() ) {
 		return false;
@@ -280,9 +319,17 @@ function page_has_parent() {
 
 	$page = get_queried_object();
 
-	return isset( $page->post_parent ) ? !! $page->post_parent : false;
+	return isset( $page->post_parent ) ? !! $page->post_parent : false; // phpcs:ignore
 }
 
+/**
+ * Gets the parent page for a given post object.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_Post $page The post object for the page.
+ * @return WP_Post      The post's parent page.
+ */
 function get_page_parent( $page = null ) {
 	if ( is_null( $page ) ) {
 		$page = get_post();
@@ -301,8 +348,18 @@ function get_page_parent( $page = null ) {
 	return $page;
 }
 
+/**
+ * Displays the menu for child pages.
+ *
+ * @since 1.0.0
+ */
 function page_menu() {
-	$page_menu = wp_page_menu( array( 'child_of' => get_page_parent()->ID, 'echo' => false ) );
+	$page_menu = wp_page_menu(
+		array(
+			'child_of' => get_page_parent()->ID,
+			'echo'     => false,
+		)
+	);
 
 	if ( preg_match( '/<li.*current_page_item[^>]*>(.*?)<\/li>/', $page_menu, $match ) ) {
 		$page_menu = str_replace(
@@ -312,10 +369,17 @@ function page_menu() {
 		);
 	}
 
-	echo $page_menu;
+	echo $page_menu; // phpcs:ignore
 }
 
-//current_page_parent
+/**
+ * Make sure the right parent menu item is active for the handbook pages.
+ *
+ * @since 1.0.0
+ *
+ * @param array $menu_items The menu items.
+ * @return array            The menu items.
+ */
 function nav_menu_objects_for_handbook( $menu_items = array() ) {
 	if ( is_single() && 'handbook' === get_queried_object()->post_type ) {
 		foreach ( $menu_items as $key => $item ) {
@@ -414,7 +478,7 @@ require_once get_theme_file_path( '/inc/template-tags.php' );
 require_once get_theme_file_path( '/inc/mentions.php' );
 
 /**
- * o2 customizations.
+ * Customizations of o2.
  */
 if ( class_exists( 'o2' ) ) {
 	require_once get_theme_file_path( '/inc/o2.php' );

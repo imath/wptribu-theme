@@ -19,9 +19,13 @@ get_header(); ?>
 				<p class="page-description">
 					<?php
 					printf(
-						/* translators: Home URL. */
-						__( 'Try searching from the field above, or go to the <a href="%s">home page</a>.', 'wptribu-theme' ), // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
-						esc_url( get_home_url() )
+						/* translators: Link to Home. */
+						esc_html__( 'Try searching from the field above, or go to the %s.', 'wptribu-theme' ),
+						sprintf(
+							'<a href="%1$s">%2$s</a>',
+							esc_url( get_home_url() ),
+							esc_html__( 'home page', 'wptribu-theme' )
+						)
 					);
 					?>
 				</p>

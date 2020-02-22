@@ -15,6 +15,10 @@ body.archive-post {
 		@include breakpoint( $tablet-portrait ) {
 			width: 960px;
 		}
+
+		.pagination {
+			padding-bottom: 2rem;
+		}
 	}
 }
 

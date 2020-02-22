@@ -29,14 +29,18 @@ get_header( 'blog' );
 						get_template_part( 'template-parts/content' );
 					endwhile;
 
-					//breathe_content_nav( 'nav-below' );
-
 				else :
 					get_template_part( 'template-parts/content', 'none' );
 				endif;
 				?>
 
 			</div><!-- #content -->
+
+			<?php if ( have_posts() ) : ?>
+
+				<?php the_posts_pagination(); ?>
+
+			<?php endif; ?>
 
 		</main><!-- #main -->
 

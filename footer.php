@@ -20,9 +20,11 @@ namespace WPTribu\Theme;
 			<div class="footer-credits">
 				&copy;
 					<?php
-					echo date_i18n(
-						/* translators: Copyright date format, see https://secure.php.net/date */
-						_x( 'Y', 'copyright date format', 'wptribu-theme' )
+					echo esc_html(
+						date_i18n(
+							/* translators: Copyright date format, see https://secure.php.net/date */
+							_x( 'Y', 'copyright date format', 'wptribu-theme' )
+						)
 					);
 					?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
@@ -30,7 +32,7 @@ namespace WPTribu\Theme;
 
 				<span class="powered-by-wordpress">
 					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wptribu-theme' ) ); ?>">
-						<?php _e( 'Powered by WordPress', 'wptribu-theme' ); ?>
+						<?php esc_html_e( 'Powered by WordPress', 'wptribu-theme' ); ?>
 					</a>
 				</span><!-- .powered-by-wordpress -->
 
@@ -41,7 +43,7 @@ namespace WPTribu\Theme;
 					<span class="to-the-top-long">
 						<?php
 						/* translators: %s: HTML character for up arrow */
-						printf( __( 'To the top %s', 'wptribu-theme' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
+						printf( esc_html__( 'To the top %s', 'wptribu-theme' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
 						?>
 					</span><!-- .to-the-top-long -->
 				</a><!-- .to-the-top -->
