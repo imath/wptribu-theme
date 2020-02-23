@@ -460,9 +460,29 @@ add_action( 'customize_preview_init', __NAMESPACE__ . '\customize_preview_js' );
  */
 function entete_menu_items( $items = '' ) {
 	if ( ! is_user_logged_in() && class_exists( 'wpTribu\SSO\WPTribu_SSO' ) ) {
+		$contributor_page = get_posts(
+			array(
+				'post_type' => 'page',
+				'post_name' => 'contribuer',
+			)
+		);
+
+		if ( $contributor_page ) {
+			$contributor_page = reset( $contributor_page );
+			$url              = get_permalink( $contributor_page->ID );
+		} else {
+			$blog_page_id = get_option( 'page_for_posts', 0 );
+
+			if ( $blog_page_id ) {
+				$url = wp_login_url( get_permalink( $blog_page_id ) );
+			} else {
+				$url = wp_login_url();
+			}
+		}
+
 		$items .= sprintf(
 			'<li id="contribute" class="button contribute-button"><a href="%1$s">%2$s</a></li>',
-			esc_url( wp_login_url() ),
+			esc_url( $url ),
 			esc_html__( 'Contribute', 'wptribu-theme' )
 		);
 	}

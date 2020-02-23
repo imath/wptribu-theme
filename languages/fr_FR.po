@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpTribu 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/imath/wptribu-theme/issues\n"
-"POT-Creation-Date: 2020-02-23T10:01:29+00:00\n"
-"PO-Revision-Date: 2020-02-23 11:14+0100\n"
+"POT-Creation-Date: 2020-02-23T10:29:10+00:00\n"
+"PO-Revision-Date: 2020-02-23 11:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: wpTribu.org <hello@wptribu.org>\n"
 "Language: fr_FR\n"
@@ -140,7 +140,7 @@ msgctxt "Post navigation"
 msgid "Next"
 msgstr "Suivant"
 
-#: functions.php:466
+#: functions.php:486
 msgid "Contribute"
 msgstr "Contribuer"
 

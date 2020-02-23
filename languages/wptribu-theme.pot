@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-23T10:01:29+00:00\n"
+"POT-Creation-Date: 2020-02-23T10:29:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wptribu-theme\n"
@@ -135,7 +135,7 @@ msgctxt "Post navigation"
 msgid "Next"
 msgstr ""
 
-#: functions.php:466
+#: functions.php:486
 msgid "Contribute"
 msgstr ""
 
