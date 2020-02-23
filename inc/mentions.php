@@ -152,6 +152,12 @@ function allow_mentions_query( $prepared_args, $request ) {
 	if ( 'wptribu_mentions' === $request->get_param( 'search_type' ) ) {
 		unset( $prepared_args['has_published_posts'] );
 		$prepared_args['exclude'] = array( get_current_user_id() );
+
+		// Check the wpTribu-SSO plugin option to eventually exclude admins.
+		$admin_logins = (array) get_option( '_wptribu_sso_site_admin_logins', array() );
+		if ( $admin_logins ) {
+			$prepared_args['login__not_in'] = $admin_logins;
+		}
 	}
 
 	return $prepared_args;

@@ -52,6 +52,8 @@ the_post();
 
 					</div>
 
+					<?php call_to_action(); ?>
+
 				</div>
 
 				<?php

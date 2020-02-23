@@ -251,3 +251,30 @@ if ( ! function_exists( __NAMESPACE__ . '\the_blog_title' ) ) :
 		echo esc_html( $get_blog_title );
 	}
 endif;
+
+if ( ! function_exists( __NAMESPACE__ . '\call_to_action' ) ) :
+	/**
+	 * Prints a call to action button to start contributing to discussions.
+	 *
+	 * Create your own  WPTribu\Theme\call_to_action() function to override in a child theme.
+	 *
+	 * @since 1.0.0
+	 */
+	function call_to_action() {
+		$blog_page_id = get_option( 'page_for_posts', 0 );
+
+		if ( ! $blog_page_id ) {
+			return;
+		}
+
+		$url = get_permalink( $blog_page_id );
+
+		printf(
+			'<div class="call-to-action">
+				<a href="%1$s" class="button button-primary button-xl">%2$s</a>
+			</div>',
+			esc_url( $url ),
+			esc_html__( 'Start contributing to discussions!', 'wptribu-theme' )
+		);
+	}
+endif;
