@@ -36,6 +36,18 @@ namespace WPTribu\Theme;
 					</a>
 				</span><!-- .powered-by-wordpress -->
 
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'footer',
+						'fallback_cb'    => false,
+						'depth'          => 1,
+						'menu_id'        => 'wptribu-footer-menu',
+						'container'      => '',
+					)
+				);
+				?>
+
 			</div><!-- .footer-credits -->
 
 			<div class="footer-utils">

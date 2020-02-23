@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpTribu 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/imath/wptribu-theme/issues\n"
-"POT-Creation-Date: 2020-02-23T09:00:15+00:00\n"
-"PO-Revision-Date: 2020-02-23 10:16+0100\n"
+"POT-Creation-Date: 2020-02-23T10:01:29+00:00\n"
+"PO-Revision-Date: 2020-02-23 11:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: wpTribu.org <hello@wptribu.org>\n"
 "Language: fr_FR\n"
@@ -98,11 +98,11 @@ msgid "Powered by WordPress"
 msgstr "Propulsé par WordPress"
 
 #. translators: %s: HTML character for up arrow
-#: footer.php:46
+#: footer.php:58
 msgid "To the top %s"
 msgstr "En haut %s"
 
-#: footer.php:53
+#: footer.php:65
 msgid "Code is Poetry."
 msgstr "Le code c’est de la poésie"
 
@@ -118,15 +118,29 @@ msgstr "Menu de la bannière du blog"
 msgid "Handbook top menu"
 msgstr "Menu de la bannière du manuel"
 
-#: functions.php:81
+#: functions.php:44
+msgid "Site‘s footer menu"
+msgstr "Menu du pied de page du site"
+
+#: functions.php:82
 msgid "Sidebar"
 msgstr "Barre latérale"
 
-#: functions.php:92
+#: functions.php:93
 msgid "o2 Sidebar"
 msgstr "Barre latérale d’o2"
 
-#: functions.php:446
+#: functions.php:149
+msgctxt "Post navigation"
+msgid "Previous"
+msgstr "Précédent"
+
+#: functions.php:150
+msgctxt "Post navigation"
+msgid "Next"
+msgstr "Suivant"
+
+#: functions.php:466
 msgid "Contribute"
 msgstr "Contribuer"
 

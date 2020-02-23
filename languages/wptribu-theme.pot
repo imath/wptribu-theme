@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-23T09:00:15+00:00\n"
+"POT-Creation-Date: 2020-02-23T10:01:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wptribu-theme\n"
@@ -93,11 +93,11 @@ msgid "Powered by WordPress"
 msgstr ""
 
 #. translators: %s: HTML character for up arrow
-#: footer.php:46
+#: footer.php:58
 msgid "To the top %s"
 msgstr ""
 
-#: footer.php:53
+#: footer.php:65
 msgid "Code is Poetry."
 msgstr ""
 
@@ -113,15 +113,29 @@ msgstr ""
 msgid "Handbook top menu"
 msgstr ""
 
-#: functions.php:81
+#: functions.php:44
+msgid "Site‘s footer menu"
+msgstr ""
+
+#: functions.php:82
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:92
+#: functions.php:93
 msgid "o2 Sidebar"
 msgstr ""
 
-#: functions.php:446
+#: functions.php:149
+msgctxt "Post navigation"
+msgid "Previous"
+msgstr ""
+
+#: functions.php:150
+msgctxt "Post navigation"
+msgid "Next"
+msgstr ""
+
+#: functions.php:466
 msgid "Contribute"
 msgstr ""
 

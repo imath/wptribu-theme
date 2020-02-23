@@ -59,6 +59,18 @@
 			list-style-type: none;
 			margin-bottom: 1px;
 		}
+
+		&#wptribu-footer-menu {
+			width: auto;
+
+			li {
+				display: inline;
+
+				&:after {
+					content: ' | ';
+				}
+			}
+		}
 	}
 
 	.cip {

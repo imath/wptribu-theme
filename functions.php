@@ -41,6 +41,7 @@ function setup_theme() {
 			'header'    => esc_html__( 'Header', 'wptribu-theme' ),
 			'primary'   => esc_html__( 'Blog top menu', 'wptribu-theme' ),
 			'secondary' => esc_html__( 'Handbook top menu', 'wptribu-theme' ),
+			'footer'    => esc_html__( 'Site‘s footer menu', 'wptribu-theme' ),
 		)
 	);
 
