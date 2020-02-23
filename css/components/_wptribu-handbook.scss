@@ -395,14 +395,21 @@ body.single-handbook {
 }
 
 nav.handbook-navigation {
-	font-size: 14px;
-	margin: 2em 0;
-	overflow: auto;
+	margin: 5em auto;
+	padding: 0;
 
-	.nav-links a {
-		width: 49%;
-		border: 0;
-		display: inline-block;
+	a {
+		border-bottom: 1px solid #eaeaea;
+		color: #444;
+		display: block;
+		font-weight: 600;
+		padding: 11px 0 12px;
+		text-transform: none;
+		width: 100%;
+
+		&:hover {
+			color: #21759b;
+		}
 
 		&[rel="prev"] {
 			text-align: left;
@@ -410,8 +417,21 @@ nav.handbook-navigation {
 
 		&[rel="next"] {
 			text-align: right;
-			float: right;
 		}
+	}
+
+	.nav-links {
+		border-top: 1px solid #eaeaea;
+		hyphens: auto;
+		word-wrap: break-word;
+	}
+
+	.meta-nav {
+		color: #777;
+		display: block;
+		font-size: 13px;
+		line-height: 2;
+		text-transform: uppercase;
 	}
 }
 

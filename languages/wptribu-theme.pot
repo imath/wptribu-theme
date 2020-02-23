@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-22T04:06:05+00:00\n"
+"POT-Creation-Date: 2020-02-23T09:00:15+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wptribu-theme\n"
@@ -38,22 +38,26 @@ msgstr ""
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#. translators: Home URL.
+#. translators: Link to Home.
 #: 404.php:23
-msgid "Try searching from the field above, or go to the <a href=\"%s\">home page</a>."
+msgid "Try searching from the field above, or go to the %s."
+msgstr ""
+
+#: 404.php:27
+msgid "home page"
 msgstr ""
 
 #. Translators: %s is the author link
-#: archive.php:34
-#: archive.php:56
+#: archive.php:35
+#: archive.php:59
 msgid "Author Archives: %s"
 msgstr ""
 
-#: archive.php:63
+#: archive.php:66
 msgid "This author has no posts yet."
 msgstr ""
 
-#: archive.php:73
+#: archive.php:76
 msgid "This category has no posts yet. Be the first to add one!"
 msgstr ""
 
@@ -70,54 +74,54 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:68
+#: comments.php:70
 msgid "Comments are closed."
 msgstr ""
 
 #. translators: Copyright date format, see https://secure.php.net/date
-#: footer.php:25
+#: footer.php:26
 msgctxt "copyright date format"
 msgid "Y"
 msgstr ""
 
-#: footer.php:32
+#: footer.php:34
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: footer.php:33
+#: footer.php:35
 msgid "Powered by WordPress"
 msgstr ""
 
 #. translators: %s: HTML character for up arrow
-#: footer.php:44
+#: footer.php:46
 msgid "To the top %s"
 msgstr ""
 
-#: footer.php:51
+#: footer.php:53
 msgid "Code is Poetry."
 msgstr ""
 
-#: functions.php:35
+#: functions.php:41
 msgid "Header"
 msgstr ""
 
-#: functions.php:36
+#: functions.php:42
 msgid "Blog top menu"
 msgstr ""
 
-#: functions.php:37
+#: functions.php:43
 msgid "Handbook top menu"
 msgstr ""
 
-#: functions.php:74
+#: functions.php:81
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:83
+#: functions.php:92
 msgid "o2 Sidebar"
 msgstr ""
 
-#: functions.php:382
+#: functions.php:446
 msgid "Contribute"
 msgstr ""
 
@@ -126,7 +130,7 @@ msgid "Menu"
 msgstr ""
 
 #: header-blog.php:17
-#: inc/o2.php:220
+#: inc/o2.php:224
 msgid "Latest news"
 msgstr ""
 
@@ -177,7 +181,7 @@ msgid "Go to the comment: %s"
 msgstr ""
 
 #. translators: 1: post date 2: post author
-#: inc/template-tags.php:38
+#: inc/template-tags.php:39
 msgid "Posted on %1$s by %2$s."
 msgstr ""
 
@@ -187,33 +191,62 @@ msgid "Format"
 msgstr ""
 
 #. translators: Post title.
-#: inc/template-tags.php:63
-msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+#: inc/template-tags.php:64
+msgid "Leave a comment%s"
 msgstr ""
 
-#: inc/template-tags.php:103
+#: inc/template-tags.php:67
+msgctxt "followed by the post title"
+msgid "on"
+msgstr ""
+
+#: inc/template-tags.php:113
 msgctxt "Used before publish date."
 msgid "Posted on"
 msgstr ""
 
-#: inc/template-tags.php:117
-#: inc/template-tags.php:126
+#: inc/template-tags.php:129
+#: inc/template-tags.php:138
 msgctxt "Used between list items, there is a space after the comma."
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:121
+#: inc/template-tags.php:133
 msgctxt "Used before category names."
 msgid "Categories"
 msgstr ""
 
-#: inc/template-tags.php:130
+#: inc/template-tags.php:142
 msgctxt "Used before tag names."
 msgid "Tags"
 msgstr ""
 
-#: inc/template-tags.php:142
+#: inc/template-tags.php:163
 msgid "The best way to learn WordPress is to contribute to it."
+msgstr ""
+
+#: o2-post-view.php:20
+msgid "Post Navigation"
+msgstr ""
+
+#: o2-post-view.php:25
+msgctxt "Post Navigation"
+msgid "Previous"
+msgstr ""
+
+#: o2-post-view.php:26
+#: single.php:53
+msgid "Previous post:"
+msgstr ""
+
+#: o2-post-view.php:34
+msgctxt "Post Navigation"
+msgid "Next"
+msgstr ""
+
+#: o2-post-view.php:35
+#: single.php:50
+msgid "Next post:"
 msgstr ""
 
 #. translators: Search query.
@@ -223,69 +256,69 @@ msgstr ""
 
 #. translators: %s: Name of current post
 #: search.php:55
-#: template-parts/content-handbook-single.php:42
-#: template-parts/content.php:52
 msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: single.php:48
+#: single.php:49
 msgid "Next"
 msgstr ""
 
-#: single.php:49
-msgid "Next post:"
-msgstr ""
-
-#: single.php:51
+#: single.php:52
 msgid "Previous"
 msgstr ""
 
-#: single.php:52
-msgid "Previous post:"
-msgstr ""
-
 #. translators: %s: Name of current post
-#: template-parts/content-handbook-single.php:22
-#: template-parts/content.php:32
-msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span> &rarr;"
+#: template-parts/content-handbook-single.php:24
+#: template-parts/content.php:36
+msgid "Continue reading%s &rarr;"
 msgstr ""
 
-#: template-parts/content-handbook-single.php:27
-#: template-parts/content-page.php:25
-#: template-parts/content.php:37
-#: templates/page-about-hero-landing.php:59
+#: template-parts/content-handbook-single.php:34
+#: template-parts/content-page.php:27
+#: template-parts/content.php:46
+#: templates/page-about-hero-landing.php:60
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-handbook-single.php:31
-#: template-parts/content.php:41
+#: template-parts/content-handbook-single.php:38
+#: template-parts/content.php:50
 msgid "Page"
 msgstr ""
 
-#: template-parts/content-none.php:13
+#. translators: %s: Name of current post
+#: template-parts/content-handbook-single.php:50
+#: template-parts/content.php:62
+msgid "Edit%s"
+msgstr ""
+
+#: template-parts/content-none.php:14
 msgid "Nothing Found"
 msgstr ""
 
-#. translators: Link to post editor.
-#: template-parts/content-none.php:23
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#. Translators: Link to post editor.
+#: template-parts/content-none.php:24
+msgid "Ready to publish your first post? %s."
 msgstr ""
 
-#: template-parts/content-none.php:31
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+#: template-parts/content-none.php:28
+msgid "Get started here"
 msgstr ""
 
 #: template-parts/content-none.php:36
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:41
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
 #. translators: %s: Name of current post
-#: template-parts/content-page.php:36
-#: templates/page-about-hero-landing.php:70
+#: template-parts/content-page.php:39
+#: templates/page-about-hero-landing.php:72
 msgid "Edit %s"
 msgstr ""
 
-#: template-parts/content.php:14
+#: template-parts/content.php:16
 msgid "Featured"
 msgstr ""
 

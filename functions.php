@@ -126,8 +126,27 @@ function styles() {
 			}
 			.o2-editor .o2-editor-text.autocomplete-loading {
 				background: url( \'%1$s\' ) no-repeat right 15px bottom 15px/16px;
+			}
+
+			nav.handbook-navigation .meta-nav {
+				color: #fff;
+			}
+
+			.handbook-navigation .meta-nav:before,
+			.handbook-navigation .meta-nav:after {
+				color: #777;
+			}
+
+			.handbook-navigation [rel="previous"] .meta-nav:before {
+				content: \'%2$s\';
+			}
+
+			.handbook-navigation [rel="next"] .meta-nav:after {
+				content: \'%3$s\';
 			}',
-			esc_url( admin_url( 'images/spinner-2x.gif' ) )
+			esc_url( admin_url( 'images/spinner-2x.gif' ) ),
+			esc_html_x( 'Previous', 'Post navigation', 'wptribu-theme' ),
+			esc_html_x( 'Next', 'Post navigation', 'wptribu-theme' ),
 		)
 	);
 }
