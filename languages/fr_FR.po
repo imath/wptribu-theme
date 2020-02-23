@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpTribu 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/imath/wptribu-theme/issues\n"
-"POT-Creation-Date: 2020-02-23T10:29:10+00:00\n"
-"PO-Revision-Date: 2020-02-23 11:29+0100\n"
+"POT-Creation-Date: 2020-02-23T11:51:13+00:00\n"
+"PO-Revision-Date: 2020-02-23 12:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: wpTribu.org <hello@wptribu.org>\n"
 "Language: fr_FR\n"
@@ -148,10 +148,6 @@ msgstr "Contribuer"
 msgid "Menu"
 msgstr "Menu"
 
-#: header-blog.php:17 inc/o2.php:224
-msgid "Latest news"
-msgstr "Dernières nouvelles"
-
 #: header-handbook.php:14
 msgid "Handbook"
 msgstr "Documentation"
@@ -200,6 +196,30 @@ msgstr ""
 msgid "Go to the comment: %s"
 msgstr "Afficher le commentaire : %s"
 
+#: inc/o2.php:224 inc/template-tags.php:228
+msgid "All discussions"
+msgstr "Toutes les discussions"
+
+#: inc/o2.php:373
+msgid "Discussions without replies"
+msgstr "Discussions sans réponse"
+
+#: inc/o2.php:375
+msgid "Discussions where I am mentioned"
+msgstr "Discussions dans lesquelles je suis mentionné·e"
+
+#: inc/o2.php:377
+msgid "Resolved discussions"
+msgstr "Discussions résolues"
+
+#: inc/o2.php:379
+msgid "Unresolved Discussions"
+msgstr "Discussions en attente de résolution"
+
+#: inc/o2.php:381
+msgid "Discussions which recently got comments"
+msgstr "Discussions ayant été commentées dernièrement"
+
 #. translators: 1: post date 2: post author
 #: inc/template-tags.php:39
 msgid "Posted on %1$s by %2$s."
@@ -243,6 +263,18 @@ msgstr "Étiquettes"
 #: inc/template-tags.php:163
 msgid "The best way to learn WordPress is to contribute to it."
 msgstr "La meilleure manière de maîtriser WordPress, c’est d’y contribuer."
+
+#: inc/template-tags.php:231
+msgid "Discussions about a category"
+msgstr "Discussions au sujet d‘une catégorie"
+
+#: inc/template-tags.php:235
+msgid "Discussions about a tag"
+msgstr "Discussions au sujet d‘une étiquette"
+
+#: inc/template-tags.php:239
+msgid "Discussions started by a specific author"
+msgstr "Discussions démarrées par un auteur en particulier"
 
 #: o2-post-view.php:20
 msgid "Post Navigation"
@@ -381,3 +413,6 @@ msgstr "« asap » !"
 #: templates/page-about-hero-landing.php:50
 msgid "Morning, afternoon, day, evening."
 msgstr "En matinée, l'après-midi, sur la journée ou en soirée."
+
+#~ msgid "Latest news"
+#~ msgstr "Dernières nouvelles"

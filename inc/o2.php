@@ -221,7 +221,7 @@ function o2_filter_widget_filters( $filters = array() ) {
 	$archive = get_post_type_archive_link( 'post' );
 
 	if ( isset( $filters['filter-none.o2'] ) ) {
-		$filters['filter-none.o2']['label'] = esc_html__( 'Latest news', 'wptribu-theme' );
+		$filters['filter-none.o2']['label'] = esc_html__( 'All discussions', 'wptribu-theme' );
 		$filters['filter-none.o2']['url']   = esc_url( $archive );
 	}
 
@@ -359,3 +359,28 @@ function o2_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\o2_scripts', 200 );
+
+/**
+ * Customize the blog title according to o2 context.
+ *
+ * @since 1.0.0
+ *
+ * @param string $blog_title The blog title.
+ * @return string            The blog title.
+ */
+function o2_blog_title( $blog_title = '' ) {
+	if ( o2_selected_filter_is_noreplies() ) {
+		$blog_title = __( 'Discussions without replies', 'wptribu-theme' );
+	} elseif ( o2_selected_filter_is_mentions() ) {
+		$blog_title = __( 'Discussions where I am mentioned', 'wptribu-theme' );
+	} elseif ( o2_selected_filter_is_resolved() ) {
+		$blog_title = __( 'Resolved discussions', 'wptribu-theme' );
+	} elseif ( o2_selected_filter_is_unresolved() ) {
+		$blog_title = __( 'Unresolved Discussions', 'wptribu-theme' );
+	} elseif ( o2_selected_filter( 'o2_recent_comments', '1' ) ) {
+		$blog_title = __( 'Discussions which recently got comments', 'wptribu-theme' );
+	}
+
+	return $blog_title;
+}
+add_filter( 'wptribu_get_blog_title', __NAMESPACE__ . '\o2_blog_title' );

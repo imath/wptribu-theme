@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-23T10:29:10+00:00\n"
+"POT-Creation-Date: 2020-02-23T11:51:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wptribu-theme\n"
@@ -143,11 +143,6 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: header-blog.php:17
-#: inc/o2.php:224
-msgid "Latest news"
-msgstr ""
-
 #: header-handbook.php:14
 msgid "Handbook"
 msgstr ""
@@ -194,6 +189,31 @@ msgstr ""
 msgid "Go to the comment: %s"
 msgstr ""
 
+#: inc/o2.php:224
+#: inc/template-tags.php:228
+msgid "All discussions"
+msgstr ""
+
+#: inc/o2.php:373
+msgid "Discussions without replies"
+msgstr ""
+
+#: inc/o2.php:375
+msgid "Discussions where I am mentioned"
+msgstr ""
+
+#: inc/o2.php:377
+msgid "Resolved discussions"
+msgstr ""
+
+#: inc/o2.php:379
+msgid "Unresolved Discussions"
+msgstr ""
+
+#: inc/o2.php:381
+msgid "Discussions which recently got comments"
+msgstr ""
+
 #. translators: 1: post date 2: post author
 #: inc/template-tags.php:39
 msgid "Posted on %1$s by %2$s."
@@ -237,6 +257,18 @@ msgstr ""
 
 #: inc/template-tags.php:163
 msgid "The best way to learn WordPress is to contribute to it."
+msgstr ""
+
+#: inc/template-tags.php:231
+msgid "Discussions about a category"
+msgstr ""
+
+#: inc/template-tags.php:235
+msgid "Discussions about a tag"
+msgstr ""
+
+#: inc/template-tags.php:239
+msgid "Discussions started by a specific author"
 msgstr ""
 
 #: o2-post-view.php:20

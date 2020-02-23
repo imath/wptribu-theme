@@ -215,3 +215,39 @@ if ( ! function_exists( __NAMESPACE__ . '\the_svg_src' ) ) :
 		echo esc_url( get_template_directory_uri() . '/images/' . $name . '.svg' );
 	}
 endif;
+
+if ( ! function_exists( __NAMESPACE__ . '\the_blog_title' ) ) :
+	/**
+	 * Prints the Blog's title.
+	 *
+	 * Create your own  WPTribu\Theme\the_blog_title() function to override in a child theme.
+	 *
+	 * @since 1.0.0
+	 */
+	function the_blog_title() {
+		$blog_title = __( 'All discussions', 'wptribu-theme' );
+
+		if ( is_category() ) {
+			$blog_title = __( 'Discussions about a category', 'wptribu-theme' );
+		}
+
+		if ( is_tag() ) {
+			$blog_title = __( 'Discussions about a tag', 'wptribu-theme' );
+		}
+
+		if ( is_author() ) {
+			$blog_title = __( 'Discussions started by a specific author', 'wptribu-theme' );
+		}
+
+		/**
+		 * Filter here to use a custom title for the blog.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param string $blog_title The title of the blog page.
+		 */
+		$get_blog_title = apply_filters( 'wptribu_get_blog_title', $blog_title );
+
+		echo esc_html( $get_blog_title );
+	}
+endif;

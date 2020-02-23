@@ -14,7 +14,7 @@ get_template_part( 'header' );
 	<header id="masthead" class="site-header col-12" role="banner">
 		<a href="#" id="secondary-toggle" onclick="return false;"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'wptribu-theme' ); ?></span></a>
 		<div class="site-branding">
-			<p class="site-title"><?php esc_html_e( 'Latest news', 'wptribu-theme' ); ?></a></p>
+			<p class="site-title"><?php the_blog_title(); ?></a></p>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<?php
