@@ -18,6 +18,11 @@
 		a {
 			display: block;
 			height: 88px;
+			color: #23282d;
+
+			&:hover {
+				color: #00a0d2;
+			}
 		}
 	}
 
