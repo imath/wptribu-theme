@@ -384,3 +384,17 @@ function o2_blog_title( $blog_title = '' ) {
 	return $blog_title;
 }
 add_filter( 'wptribu_get_blog_title', __NAMESPACE__ . '\o2_blog_title' );
+
+/**
+ * Make sure to ignore stickies when it's not consistent.
+ *
+ * @since 1.0.0
+ *
+ * @param WP_Query $wp_query The WordPress Query object.
+ */
+function o2_parse_query( $wp_query = null ) {
+	if ( o2_selected_filter_is_noreplies() || o2_selected_filter_is_mentions() || o2_selected_filter_is_unresolved() || o2_selected_filter_is_resolved() ) {
+		$wp_query->query_vars['ignore_sticky_posts'] = true;
+	}
+}
+add_action( 'parse_query', __NAMESPACE__ . '\o2_parse_query' );
