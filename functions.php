@@ -68,6 +68,32 @@ function setup_theme() {
 			'default-image' => '',
 		)
 	);
+
+	add_theme_support(
+		'starter-content',
+		array(
+			// Create initial pages.
+			'posts'   => array(
+				'home' => array(
+					'post_title' => __( 'Home', 'wptribu-theme' ),
+					'post_type'  => 'page',
+					'post_name'  => _x( 'home', 'slug to use for the home page', 'wptribu-theme' ),
+					'template'   => 'page-about-hero-landing.php',
+				),
+				'blog' => array(
+					'post_title' => __( 'Discussions', 'wptribu-theme' ),
+					'post_type'  => 'page',
+					'post_name'  => _x( 'discussions', 'slug to use for the blog page', 'wptribu-theme' ),
+				),
+			),
+			// Default to a static front page and assign the front and posts pages.
+			'options' => array(
+				'show_on_front'  => 'page',
+				'page_on_front'  => '{{home}}',
+				'page_for_posts' => '{{blog}}',
+			),
+		),
+	);
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme' );
 

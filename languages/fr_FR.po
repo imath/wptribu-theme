@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wpTribu 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/imath/wptribu-theme/issues\n"
-"POT-Creation-Date: 2020-02-23T11:51:13+00:00\n"
-"PO-Revision-Date: 2020-02-23 12:55+0100\n"
+"POT-Creation-Date: 2020-02-23T13:15:17+00:00\n"
+"PO-Revision-Date: 2020-02-23 14:16+0100\n"
 "Last-Translator: \n"
 "Language-Team: wpTribu.org <hello@wptribu.org>\n"
 "Language: fr_FR\n"
@@ -122,25 +122,43 @@ msgstr "Menu de la bannière du manuel"
 msgid "Site‘s footer menu"
 msgstr "Menu du pied de page du site"
 
-#: functions.php:82
+#: functions.php:78
+msgid "Home"
+msgstr "Accueil"
+
+#: functions.php:80
+msgctxt "slug to use for the home page"
+msgid "home"
+msgstr "accueil"
+
+#: functions.php:84
+msgid "Discussions"
+msgstr "Discussions"
+
+#: functions.php:86
+msgctxt "slug to use for the blog page"
+msgid "discussions"
+msgstr "discussions"
+
+#: functions.php:108
 msgid "Sidebar"
 msgstr "Barre latérale"
 
-#: functions.php:93
+#: functions.php:119
 msgid "o2 Sidebar"
 msgstr "Barre latérale d’o2"
 
-#: functions.php:149
+#: functions.php:175
 msgctxt "Post navigation"
 msgid "Previous"
 msgstr "Précédent"
 
-#: functions.php:150
+#: functions.php:176
 msgctxt "Post navigation"
 msgid "Next"
 msgstr "Suivant"
 
-#: functions.php:486
+#: functions.php:512
 msgid "Contribute"
 msgstr "Contribuer"
 
@@ -275,6 +293,18 @@ msgstr "Discussions au sujet d‘une étiquette"
 #: inc/template-tags.php:239
 msgid "Discussions started by a specific author"
 msgstr "Discussions démarrées par un auteur en particulier"
+
+#: o2-no-posts-post-view.php:15
+msgid "You currently have no mentions."
+msgstr "Vous n‘avez pas de mention pour le moment."
+
+#: o2-no-posts-post-view.php:17
+msgid "There are no resolved discussions so far."
+msgstr "Il n‘y a pas de discussion résolue pour le moment."
+
+#: o2-no-posts-post-view.php:19
+msgid "There are no unresolved discussions so far."
+msgstr "Il n‘y a pas de discussion en attente de résolution pour le moment."
 
 #: o2-post-view.php:20
 msgid "Post Navigation"
@@ -413,6 +443,3 @@ msgstr "« asap » !"
 #: templates/page-about-hero-landing.php:50
 msgid "Morning, afternoon, day, evening."
 msgstr "En matinée, l'après-midi, sur la journée ou en soirée."
-
-#~ msgid "Latest news"
-#~ msgstr "Dernières nouvelles"

@@ -279,7 +279,7 @@ function o2_filter_options( $options = array() ) {
 		$options['options']['showFrontSidePostBox'] = is_user_logged_in() && current_user_can( 'publish_posts' );
 		add_action( 'wp_footer', __NAMESPACE__ . '\o2_bring_expand_editor_control' );
 
-	} elseif ( is_search() || isset( $_GET['mentions'] ) ) { // phpcs:ignore
+	} elseif ( is_search() || isset( $_GET['mentions'] ) || isset( $_GET['resolved'] ) ) { // phpcs:ignore
 		$options['options']['showFrontSidePostBox'] = false;
 	}
 
