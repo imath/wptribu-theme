@@ -4,4 +4,14 @@ a {
 	&.button:active {
 		text-decoration: none;
 	}
+
+	&[target="_blank"]:after {
+		display: inline-block;
+		font: normal 21px/1 dashicons;
+		vertical-align: text-bottom;
+		width: 16px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		content: "\f504";
+	}
 }

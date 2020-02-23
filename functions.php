@@ -489,7 +489,7 @@ function entete_menu_items( $items = '' ) {
 		$contributor_page = get_posts(
 			array(
 				'post_type' => 'page',
-				'pagename'  => 'contribuer',
+				'name'      => 'contribuer',
 			)
 		);
 

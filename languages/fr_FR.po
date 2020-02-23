@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: wpTribu 1.0.0\n"
+"Project-Id-Version: wpTribu Theme 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/imath/wptribu-theme/issues\n"
-"POT-Creation-Date: 2020-02-23T16:18:07+00:00\n"
-"PO-Revision-Date: 2020-02-23 17:23+0100\n"
+"POT-Creation-Date: 2020-02-23T18:28:10+00:00\n"
+"PO-Revision-Date: 2020-02-23 19:29+0100\n"
 "Last-Translator: \n"
 "Language-Team: wpTribu.org <hello@wptribu.org>\n"
 "Language: fr_FR\n"
