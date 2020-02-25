@@ -213,17 +213,10 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\content_width', 0 );
  * @return string The minimized suffix.
  */
 function get_scripts_min() {
-	$suffix       = '.min';
-	$script_debug = false;
+	$suffix = '.min';
 
 	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-		$suffix       = '';
-		$script_debug = true;
-	}
-
-	// Concatenates core scripts when possible.
-	if ( ! $script_debug ) {
-		$GLOBALS['concatenate_scripts'] = true; // phpcs:ignore
+		$suffix = '';
 	}
 
 	return $suffix;
@@ -250,7 +243,7 @@ function is_post_archive() {
  */
 function scripts() {
 	$suffix  = get_scripts_min();
-	$version = '1.0.0';
+	$version = '1.0.1';
 
 	if ( ! $suffix ) {
 		$version = filemtime( get_theme_file_path( "/js/navigation$suffix.js" ) );
