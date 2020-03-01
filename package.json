@@ -1,6 +1,6 @@
 {
   "name": "wptribu-theme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Theme for wptribu.org",
   "author": "imath",
   "license": "GPL-2.0+",
@@ -26,5 +26,8 @@
     "grunt-sass-globbing": "^1.5.1",
     "node-sass": "^4.13.1",
     "pixrem": "^5.0.0"
+  },
+  "dependencies": {
+    "grunt-contrib-clean": "^2.0.0"
   }
 }

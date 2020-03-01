@@ -243,7 +243,7 @@ function is_post_archive() {
  */
 function scripts() {
 	$suffix  = get_scripts_min();
-	$version = '1.0.1';
+	$version = '1.0.2';
 
 	if ( ! $suffix ) {
 		$version = filemtime( get_theme_file_path( "/js/navigation$suffix.js" ) );
