@@ -1,12 +1,12 @@
 {
   "name": "wptribu-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Theme for wptribu.org",
   "author": "imath",
   "license": "GPL-2.0+",
   "scripts": {
-		"pot": "wp i18n make-pot --skip-js --headers='{\"Project-Id-Version\": \"wpTribu Theme 1.0.0\", \"Report-Msgid-Bugs-To\": \"https://github.com/imath/wptribu-theme/issues\", \"Last-Translator\": \"imath <contact@imathi.eu>\"}' . languages/wptribu-theme.pot",
-		"wpcs": "./vendor/bin/phpcs *.php inc/*.php template-parts/*.php templates/*.php --standard=WordPress"
+    "pot": "wp i18n make-pot --skip-js --headers='{\"Project-Id-Version\": \"wpTribu Theme 1.0.0\", \"Report-Msgid-Bugs-To\": \"https://github.com/imath/wptribu-theme/issues\", \"Last-Translator\": \"imath <contact@imathi.eu>\"}' . languages/wptribu-theme.pot",
+    "wpcs": "./vendor/bin/phpcs *.php inc/*.php template-parts/*.php templates/*.php --standard=WordPress"
   },
   "repository": {
     "type": "git",

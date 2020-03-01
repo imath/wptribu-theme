@@ -164,6 +164,7 @@ body.single-handbook {
 		z-index: 1;
 		position: relative;
 		color: #555d66;
+		font-size: 0.7em;
 
 		@include breakpoint( 971px ) {
 			margin: -15px -30px 15px 15px;
