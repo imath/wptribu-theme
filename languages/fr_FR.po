@@ -2,10 +2,10 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: wpTribu Theme 1.0.0\n"
+"Project-Id-Version: wpTribu Theme 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/imath/wptribu-theme/issues\n"
-"POT-Creation-Date: 2020-02-23T18:28:10+00:00\n"
-"PO-Revision-Date: 2020-02-23 19:29+0100\n"
+"POT-Creation-Date: 2020-03-08T18:48:17+00:00\n"
+"PO-Revision-Date: 2020-03-08 19:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: wpTribu.org <hello@wptribu.org>\n"
 "Language: fr_FR\n"
@@ -158,7 +158,7 @@ msgctxt "Post navigation"
 msgid "Next"
 msgstr "Suivant"
 
-#: functions.php:512
+#: functions.php:505
 msgid "Contribute"
 msgstr "Contribuer"
 
@@ -357,7 +357,7 @@ msgstr "Poursuivre la lecture%s &rarr;"
 
 #: template-parts/content-handbook-single.php:34
 #: template-parts/content-page.php:27 template-parts/content.php:46
-#: templates/page-about-hero-landing.php:62
+#: templates/page-about-hero-landing.php:58
 msgid "Pages:"
 msgstr "Pages :"
 
@@ -400,7 +400,7 @@ msgstr ""
 "recherchez. Une recherche peut aider."
 
 #. translators: %s: Name of current post
-#: template-parts/content-page.php:39 templates/page-about-hero-landing.php:74
+#: template-parts/content-page.php:39 templates/page-about-hero-landing.php:70
 msgid "Edit %s"
 msgstr "Modifier %s"
 
@@ -412,34 +412,33 @@ msgstr "Mis en une"
 msgid "Landing"
 msgstr "Atterrissage"
 
-#: templates/page-about-hero-landing.php:27
-msgid ""
-"The freedom to meet. The freedom to connect. The freedom to contribute to "
-"WordPress."
-msgstr ""
-"Libres de se rencontrer. Libres de faire connaissance. Libres de contribuer "
-"à WordPress."
-
-#: templates/page-about-hero-landing.php:39
+#: templates/page-about-hero-landing.php:35
 msgid "WordCamp"
 msgstr "WordCamp"
 
-#: templates/page-about-hero-landing.php:40
+#: templates/page-about-hero-landing.php:36
 msgid "Before, during or after."
 msgstr "Avant, pendant ou après."
 
-#: templates/page-about-hero-landing.php:44
+#: templates/page-about-hero-landing.php:40
 msgid "Meetup"
 msgstr "Meetup"
 
-#: templates/page-about-hero-landing.php:45
+#: templates/page-about-hero-landing.php:41
 msgid "During a local group meeting."
 msgstr "À l'occasion d'une rencontre d'un groupe local."
 
-#: templates/page-about-hero-landing.php:49
+#: templates/page-about-hero-landing.php:45
 msgid "asap!"
 msgstr "« asap » !"
 
-#: templates/page-about-hero-landing.php:50
+#: templates/page-about-hero-landing.php:46
 msgid "Morning, afternoon, day, evening."
 msgstr "En matinée, l'après-midi, sur la journée ou en soirée."
+
+#~ msgid ""
+#~ "The freedom to meet. The freedom to connect. The freedom to contribute to "
+#~ "WordPress."
+#~ msgstr ""
+#~ "Libres de se rencontrer. Libres de faire connaissance. Libres de "
+#~ "contribuer à WordPress."

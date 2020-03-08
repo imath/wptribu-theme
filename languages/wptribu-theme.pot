@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-02-23T18:28:10+00:00\n"
+"POT-Creation-Date: 2020-03-08T18:48:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: wptribu-theme\n"
@@ -153,7 +153,7 @@ msgctxt "Post navigation"
 msgid "Next"
 msgstr ""
 
-#: functions.php:512
+#: functions.php:505
 msgid "Contribute"
 msgstr ""
 
@@ -356,7 +356,7 @@ msgstr ""
 #: template-parts/content-handbook-single.php:34
 #: template-parts/content-page.php:27
 #: template-parts/content.php:46
-#: templates/page-about-hero-landing.php:62
+#: templates/page-about-hero-landing.php:58
 msgid "Pages:"
 msgstr ""
 
@@ -394,7 +394,7 @@ msgstr ""
 
 #. translators: %s: Name of current post
 #: template-parts/content-page.php:39
-#: templates/page-about-hero-landing.php:74
+#: templates/page-about-hero-landing.php:70
 msgid "Edit %s"
 msgstr ""
 
@@ -406,30 +406,26 @@ msgstr ""
 msgid "Landing"
 msgstr ""
 
-#: templates/page-about-hero-landing.php:27
-msgid "The freedom to meet. The freedom to connect. The freedom to contribute to WordPress."
-msgstr ""
-
-#: templates/page-about-hero-landing.php:39
+#: templates/page-about-hero-landing.php:35
 msgid "WordCamp"
 msgstr ""
 
-#: templates/page-about-hero-landing.php:40
+#: templates/page-about-hero-landing.php:36
 msgid "Before, during or after."
 msgstr ""
 
-#: templates/page-about-hero-landing.php:44
+#: templates/page-about-hero-landing.php:40
 msgid "Meetup"
 msgstr ""
 
-#: templates/page-about-hero-landing.php:45
+#: templates/page-about-hero-landing.php:41
 msgid "During a local group meeting."
 msgstr ""
 
-#: templates/page-about-hero-landing.php:49
+#: templates/page-about-hero-landing.php:45
 msgid "asap!"
 msgstr ""
 
-#: templates/page-about-hero-landing.php:50
+#: templates/page-about-hero-landing.php:46
 msgid "Morning, afternoon, day, evening."
 msgstr ""
