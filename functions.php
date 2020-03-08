@@ -140,7 +140,7 @@ function styles() {
 			'dashicons',
 			'open-sans',
 		),
-		'1.0.0'
+		'1.1.0'
 	);
 	wp_style_add_data( 'wptribu-theme', 'rtl', 'replace' );
 	wp_add_inline_style(
@@ -243,7 +243,7 @@ function is_post_archive() {
  */
 function scripts() {
 	$suffix  = get_scripts_min();
-	$version = '1.0.2';
+	$version = '1.1.0';
 
 	if ( ! $suffix ) {
 		$version = filemtime( get_theme_file_path( "/js/navigation$suffix.js" ) );

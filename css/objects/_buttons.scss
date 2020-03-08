@@ -105,6 +105,13 @@ a.button.button-large,
 a.button.button-xl,
 .button-group.button-xl a.button {
 	line-height: ms( 8 );
+
+	@include breakpoint( 0, 480px ) {
+		font-weight: 900;
+		padding: 0 0.5rem;
+		margin: auto;
+		margin: -1rem;
+	}
 }
 
 a.button.button-small,

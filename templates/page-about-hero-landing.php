@@ -22,10 +22,6 @@ the_post();
 				<h1 class="entry-title"><?php the_site_description(); ?></h1>
 
 				<div class="dashicons dashicons-wordpress-alt"></div>
-
-				<p class="entry-description">
-					<?php esc_html_e( 'The freedom to meet. The freedom to connect. The freedom to contribute to WordPress.', 'wptribu-theme' ); ?>
-				</p>
 			</header><!-- .entry-header -->
 
 			<div class="entry-content">
